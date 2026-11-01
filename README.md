@@ -11,6 +11,10 @@
 > 本项目基于 [Bookyakuno](https://github.com/Bookyakuno) 的 *User Translate*（GPL-3）修改扩充，
 > 沿用其词典加载机制，新增自动翻译、按插件开关、新装提示与性能优化。
 
+> **命名说明**：项目名是 **User Translate (Auto Translate)**；
+> 插件内部的模块目录仍叫 `user_translate`——这是 Blender 识别插件的身份，保持不变才能覆盖安装旧版，
+> 并让用户已有的偏好设置和词典继续生效。
+
 ![界面截图](docs/screenshots/preview.png)
 
 ---
@@ -31,7 +35,7 @@
 
 ## 安装
 
-1. 下载 [Releases](https://github.com/zzl0921/user-translate/releases) 里的
+1. 下载 [Releases](https://github.com/zzl0921/user-translate-auto/releases) 里的
    `user_translate_auto-x.y.z.zip`（或把本仓库的 `user_translate/` 文件夹压成 zip）；
 2. Blender → `编辑 → 偏好设置 → 插件`；
 3. 右上角下拉箭头 → **从磁盘安装**，选择该 zip；
