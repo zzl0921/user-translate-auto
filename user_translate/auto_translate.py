@@ -266,6 +266,82 @@ _STRING_PATTERN = re.compile(
 _SKIP_LINE_PATTERN = re.compile(r"^\s*#")
 _LONG_STRING = 300
 
+# Strings that are clearly not UI text: identifiers, file names, URLs, format
+# specifiers and pure numbers. They used to inflate the "extracted" count and
+# made the hit rate look worse than what the user actually sees.
+_NON_UI_PATTERNS = (
+    re.compile(r"^https?://", re.I),
+    re.compile(
+        r"^[\w.\-]+\.(py|json|blend|blend1|png|jpe?g|exr|hdr|fbx|glb|gltf|obj|abc|usd\w*|ttf|otf|wav|mp3|mp4|zip|toml|ya?ml)$",
+        re.I,
+    ),
+    re.compile(r"^\d[\d\s.,%:+\-*/()]*$"),
+    re.compile(r"%[sdfr]"),
+    re.compile(r"\{[a-zA-Z_][^}]*\}"),
+    re.compile(r"^[a-z][a-z0-9]*(_[a-z0-9]+)+$"),  # snake_case identifiers
+    re.compile(r"^bpy\."),
+)
+
+
+def is_ui_string(text):
+    if not text or not re.search(r"[A-Za-z\u4e00-\u9fff]", text):
+        return False
+    for pattern in _NON_UI_PATTERNS:
+        if pattern.search(text):
+            return False
+    return True
+
+
+_CJK_PATTERN = re.compile(r"[\u4e00-\u9fff]")
+
+
+def is_already_localized(text):
+    """Chinese (or mixed Chinese) labels need no translation at all."""
+    return bool(_CJK_PATTERN.search(text))
+
+
+def _normalize_key(text):
+    """Lower-case, drop trailing ellipsis / colon, collapse whitespace."""
+    text = text.strip().lower()
+    text = re.sub(r"[\.\u2026]+$", "", text)
+    text = re.sub(r"[:：\s]+$", "", text)
+    return re.sub(r"\s+", " ", text)
+
+
+_index_cache = {}
+
+
+def glossary_index(exclude=None):
+    """(glossary, lower-cased index, normalized index) for one exclude set."""
+    key = os.path.normcase(os.path.abspath(exclude)) if exclude else ""
+    glossary = build_glossary(exclude=exclude)
+
+    cached = _index_cache.get(key)
+    if cached and cached[0] is glossary:
+        return cached
+
+    lower = {}
+    normalized = {}
+    for source, translated in glossary.items():
+        lower.setdefault(source.lower(), translated)
+        normalized.setdefault(_normalize_key(source), translated)
+
+    entry = (glossary, lower, normalized)
+    _index_cache[key] = entry
+    return entry
+
+
+def lookup_translation(index, source):
+    """Exact → case-insensitive → punctuation-insensitive dictionary lookup."""
+    glossary, lower, normalized = index
+    translated = glossary.get(source) or glossary.get(source.strip())
+    if translated:
+        return translated
+    translated = lower.get(source.lower()) or lower.get(source.strip().lower())
+    if translated:
+        return translated
+    return normalized.get(_normalize_key(source))
+
 
 def module_py_files(module_name, module_path):
     """All .py files that belong to that add-on.
@@ -311,6 +387,8 @@ def extract_strings(module_name, module_path, limit=4000):
                     continue
                 if value in seen:
                     continue
+                if not is_ui_string(value):
+                    continue
                 seen.add(value)
                 found.append(value)
                 if len(found) >= limit:
@@ -355,7 +433,7 @@ def translate_addon(module_name, module_path, target_name=None, dry_run=False, o
 
     # Never let the add-on's own file feed its own translation: a few CSVs out
     # there have shifted columns and would otherwise reproduce the same damage.
-    glossary = build_glossary(exclude=csv_path)
+    index = glossary_index(exclude=csv_path)
 
     if overwrite:
         if os.path.exists(csv_path):
@@ -369,15 +447,30 @@ def translate_addon(module_name, module_path, target_name=None, dry_run=False, o
     else:
         existing_pairs = _existing_pairs(csv_path)
         pairs = dict(existing_pairs)
+
     hit = 0
+    blender_strings = set()
+    localized = 0
     for source in strings:
+        if is_already_localized(source):
+            # Chinese add-on: nothing to translate, do not count it as a miss
+            localized += 1
+            continue
         if source in pairs and pairs[source]:
             hit += 1
             continue
-        translated = glossary.get(source) or glossary.get(source.strip())
+        translated = lookup_translation(index, source)
         if translated:
             pairs[source] = translated
             hit += 1
+            continue
+        # Blender itself already translates this one (built-in UI translation),
+        # so the user sees Chinese even without a dictionary entry.
+        try:
+            if bpy is not None and bpy.app.translations.pgettext_iface(source) != source:
+                blender_strings.add(source)
+        except Exception:
+            pass
 
     if not dry_run:
         rows = []
@@ -397,11 +490,17 @@ def translate_addon(module_name, module_path, target_name=None, dry_run=False, o
         with codecs.open(csv_path, "w", "utf-8") as handle:
             handle.write("\n".join(rows))
 
-    missing = [source for source in strings if not pairs.get(source)]
+    missing = [
+        source for source in strings
+        if not pairs.get(source) and source not in blender_strings
+        and not is_already_localized(source)
+    ]
     return {
         "module": module_name,
         "extracted": len(strings),
         "hit": hit,
+        "blender": len(blender_strings),
+        "localized": localized,
         "missing": len(missing),
         "csv": csv_path if not dry_run else None,
         "samples": missing[:8],
@@ -410,9 +509,9 @@ def translate_addon(module_name, module_path, target_name=None, dry_run=False, o
 
 def missing_to_clipboard(module_name, module_path):
     """Put the not-yet-translated strings on the clipboard (one per line)."""
-    glossary = build_glossary()
+    index = glossary_index()
     strings = extract_strings(module_name, module_path)
-    missing = [source for source in strings if source not in glossary]
+    missing = [source for source in strings if not lookup_translation(index, source)]
     if bpy is not None and missing:
         bpy.context.window_manager.clipboard = "\n".join(missing)
     return missing
