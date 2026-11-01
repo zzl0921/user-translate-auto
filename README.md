@@ -17,6 +17,8 @@
 
 ![界面截图](docs/screenshots/preview.png)
 
+![机翻补翻与词典体检](docs/screenshots/tools.png)
+
 ---
 
 ## 功能
