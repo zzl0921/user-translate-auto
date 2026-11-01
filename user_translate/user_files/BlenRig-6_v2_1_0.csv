@@ -1,0 +1,2687 @@
+," "
+"""\""""
+"""", ""BlenRig 修复错位骨骼","""\""""
+"""",""BlenRig Fix Misaligned Bones"""
+修复烘焙后错位的骨骼,Fixes misaligned bones after baking
+BlenRig 自动计算滚动角度,BlenRig Auto Calulate Roll Angles
+将滚动角度设置为预定义值,Set roll angles to their predefined values
+BlenRig 用户定义滚动角度,BlenRig User Defined Roll Angles
+计算用户定义的滚动角度和对齐方式,Calulate roll angles and aligns defined by user
+BlenRig 存储滚动角度,BlenRig Store Roll Angles
+存储每个骨骼的当前滚动角度,Store current roll angles for each bone
+BlenRig 恢复滚动角度,BlenRig restore Roll Angles
+将滚动角度还原为保存在每个骨骼中的角度,Retore roll angles to the ones saved in each bone
+BlenRig 重置动态塑形,BlenRig Reset Dynamic Shaping
+重置动态塑形值,Reset Dynamic Shaping values
+BlenRig 镜像体量保持约束 L 至 R,BlenRig Mirror Volume Preservation Constraints L to R
+镜像左至右的体量保持约束,Mirror Volume Preservation Constraints L to R
+BlenRig 镜像真实关节约束 L 至 R,BlenRig Mirror Realistic Joints Constraints L to R
+镜像真实关节约束 L 至 R,Mirror Realistic Joints Constraints L to R
+BlenRig 计算 IK 杆角度,BlenRig Calculate IK Pole Angles
+计算 IK 杆角度,Calculate IK Pole Angles
+BlenRig 计算地板偏移,BlenRig Calculate Floor Offsets
+计算地板偏移,Calculate Floor Offsets
+BlenRig 6 网格烘焙,BlenRig 6 Mesh Baker
+将当前姿势烘焙到网格,Bake current pose to mesh
+','
+基础,Basis
+烘焙形状,Baked_shape
+BlenRig 6 重置挂钩,BlenRig 6 Reset Hooks
+重置网格和曲线上的钩点,Reset Hooks on Lattices and Curves
+BlenRig 6 禁用钩子修改器,BlenRig 6 Disable Hooks modifier
+禁用钩子修改器,Disable Hooks modifier
+BlenRig 6 重置变形器,BlenRig 6 Reset Deformers
+重置电枢相关的网格和曲线,Reset Armature related Lattices and Curves
+BlenRig 6 电枢烘焙,BlenRig 6 Armature Baker
+将当前姿势烘焙到衔铁,Bake current pose to armature
+BlenRig 6 重置约束,BlenRig 6 Reset Constraints
+重置所有姿势约束,Reset all posebone constraints
+缩放至所选,BlenRig Zoom to Selected
+缩放至选定 / 查看全部,Zoom to selected / View All
+BlenRig 插入关键帧到主动画属性,BlenRig Insert Keyframes To Main Animation Properties
+为主要动画属性插入关键帧,Insert Keyframes to main animation properties
+BlenRig 选择头部拉伸,BlenRig Select head_stretch
+头部拉伸,head_stretch
+BlenRig 选择头部卡通,BlenRig Select head_toon
+头部,head_toon
+选择头顶控制器,BlenRig Select head_top_ctrl
+头顶控制器,head_top_ctrl
+选择头部中部控制器,BlenRigSelect head_mid_ctrl
+头部中部控制器,head_mid_ctrl
+选择头部中部曲线,BlenRig Select head_mid_curve
+头部中部曲线,head_mid_curve
+选择嘴巴强度控制器,BlenRig Select mouth_str_ctrl
+嘴巴强度控制器,mouth_str_ctrl
+选择左眼控制器,BlenRIg Select look_L
+左眼控制器,look_L
+选择右眼控制器,BlenRIg Select look_R
+右眼控制器,look_R
+选择眼睛控制器,BlenRIg Select look
+眼睛控制器,look
+选择头部FK控制器,BlenRIg Select head_fk
+头部FK控制器,head_fk
+选择头部IK控制器,BlenRIg Select head_ik_ctrl
+头部IK控制器,head_ik_ctrl
+选择脖子4卡通控制器,BlenRig Select neck_4_toon
+脖子4卡通控制器,neck_4_toon
+选择面部上部卡通控制器,BlenRig Select face_toon_up
+面部上部卡通控制器,face_toon_up
+选择面部中部卡通控制器,BlenRig Select face_toon_mid
+面部中部卡通控制器,face_toon_mid
+选择面部下部卡通控制器,BlenRig Select face_toon_low
+面部下部卡通控制器,face_toon_low
+选择脖子3控制器,BlenRig Select neck_3
+脖子3IK控制器 / 脖子3FK控制器,neck_3_ik_ctrl / neck_3_fk
+选择脖子2控制器,BlenRig Select neck_2
+脖子2IK控制器 / 脖子2FK控制器,neck_2_ik_ctrl / neck_2_fk
+选择脖子1控制器,BlenRig Select neck_1
+脖子1FK控制器,neck_1_fk
+脖子2FK控制器,neck_2_fk
+脖子3FK控制器,neck_3_fk
+选择脖子FK控制器,BlenRig Select neck_fk_ctrl
+脖子FK控制器,neck_fk_ctrl
+选择脖子3卡通控制器,BlenRig Select neck_3_toon
+脖子3卡通控制器,neck_3_toon
+选择脖子2卡通控制器,BlenRig Select neck_2_toon
+脖子2卡通控制器,neck_2_toon
+选择脖子控制器,BlenRig Select neck_ctrl
+脖子IK控制器 / 脖子FK控制器,neck_ik_ctrl / neck_fk_ctrl
+选择右锁骨卡通控制器,BlenRig Select clavi_toon_R
+右锁骨卡通控制器,clavi_toon_R
+选择右肩旋转控制器,BlenRig Select shoulder_rot_R
+右肩旋转控制器,shoulder_rot_R
+选择右肩控制器,BlenRig Select shoulder_R
+右肩控制器,shoulder_R
+选择头部缩放控制器,BlenRig Select head_scale
+头部缩放控制器,head_scale
+选择左肩控制器,BlenRig Select shoulder_L
+左肩控制器,shoulder_L
+选择左肩旋转控制器,BlenRig Select shoulder_rot_L
+左肩旋转控制器,shoulder_rot_L
+选择左锁骨卡通控制器,BlenRig Select clavi_toon_L
+左锁骨卡通控制器,clavi_toon_L
+选择右手臂卡通控制器,BlenRig Select arm_toon_R
+右手臂卡通控制器,arm_toon_R
+选择右肘极向控制器,BlenRig Select elbow_pole_R
+右肘极向控制器,elbow_pole_R
+选择右前臂卡通控制器,BlenRig Select forearm_toon_R
+右前臂卡通控制器,forearm_toon_R
+选择右手臂缩放控制器,BlenRig Select arm_scale_R
+右手臂缩放控制器,arm_scale_R
+选择右手臂FK控制器,BlenRig Select arm_fk_R
+右手臂FK控制器,arm_fk_R
+右手臂FK控制器,arm_fk_ctrl_R
+选择右手臂IK控制器,BlenRig Select arm_ik_R
+右手臂IK控制器,arm_ik_R
+选择右肘卡通控制器,BlenRig Select elbow_toon_R
+右肘卡通控制器,elbow_toon_R
+选择右前臂FK控制器,BlenRig Select forearm_fk_R
+右前臂FK控制器,forearm_fk_R
+选择右前臂IK控制器,BlenRig Select forearm_ik_R
+右前臂IK控制器,forearm_ik_R
+选择右手卡通控制器,BlenRig Select hand_toon_R
+右手卡通控制器,hand_toon_R
+选择左手臂卡通控制器,BlenRig Select arm_toon_L
+左手臂卡通控制器,arm_toon_L
+选择左肘极向控制器,BlenRig Select elbow_pole_L
+左肘极向控制器,elbow_pole_L
+选择左前臂卡通控制器,BlenRig Select forearm_toon_L
+左前臂卡通控制器,forearm_toon_L
+选择左手臂缩放控制器,BlenRig Select arm_scale_L
+左手臂缩放控制器,arm_scale_L
+选择左手臂FK控制器,BlenRig Select arm_fk_L
+选择左手臂FK控制器,arm_fk_L
+左手臂FK控制器,arm_fk_ctrl_L
+选择左手臂IK控制器,BlenRig Select arm_ik_L
+左手臂IK控制器,arm_ik_L
+选择左肘卡通控制器,BlenRig Select elbow_toon_L
+左肘卡通控制器,elbow_toon_L
+选择左前臂FK控制器,BlenRig Select forearm_fk_L
+左前臂FK控制器,forearm_fk_L
+选择左前臂IK控制器,BlenRig Select forearm_ik_L
+左前臂IK控制器,forearm_ik_L
+选择左手卡通控制器,BlenRig Select hand_toon_L
+左手卡通控制器,hand_toon_L
+选择躯干控制器,BlenRig Select torso_ctrl
+躯干IK控制器 / 躯干FK控制器 / 躯干反向控制器,torso_ik_ctrl / torso_fk_ctrl / torso_inv_ctrl
+选择脊椎3控制器,BlenRig Select spine_3
+脊椎3IK控制器 / 脊椎3FK / 脊椎3反向控制器,spine_3_ik_ctrl / spine_3_fk / spine_3_inv
+选择脊椎2控制器,BlenRig Select spine_2
+脊椎2IK控制器 / 脊椎2FK / 脊椎2反向控制器,spine_2_ik_ctrl / spine_2_fk / spine_2_inv
+选择脊椎1控制器,BlenRig Select spine_1
+脊椎1IK控制器 / 脊椎1FK / 脊椎1反向控制器,spine_1_ik_ctrl / spine_1_fk / spine_1_inv
+脊椎1FK,spine_1_fk
+脊椎2FK,spine_2_fk
+脊椎3FK,spine_3_fk
+选择躯干FK控制器,BlenRig Select torso_fk_ctrl
+躯干FK控制器,torso_fk_ctrl
+选择脊椎2FK反向控制器,BlenRig Select spine_2_fk_inv
+脊椎2FK反向控制器,spine_2_fk_inv
+选择脊椎3FK反向控制器,BlenRig Select spine_3_fk_inv
+脊椎3FK反向控制器,spine_3_fk_inv
+选择躯干FK反向控制器,BlenRig Select torso_fk_ctrl_inv
+躯干FK反向控制器,torso_fk_ctrl_inv
+选择脊椎4卡通控制器,BlenRig Select spine_4_toon
+脊椎4卡通控制器,spine_4_toon
+选择脊椎3卡通控制器,BlenRig Select spine_3_toon
+脊椎3卡通控制器,spine_3_toon
+选择脊椎2卡通控制器,BlenRig Select spine_2_toon
+脊椎2卡通控制器,spine_2_toon
+选择脊椎1卡通控制器,BlenRig Select spine_1_toon
+脊椎1卡通控制器,spine_1_toon
+选择脊椎3反向控制器,BlenRig Select spine_3_inv_ctrl
+脊椎3反向控制器,spine_3_inv_ctrl
+选择骨盆卡通控制器,BlenRig Select pelvis_toon
+骨盆卡通控制器,pelvis_toon
+选择骨盆控制器,BlenRig Select pelvis_ctrl
+骨盆控制器,pelvis_ctrl
+骨盆控制器 / 骨盆反向控制器,pelvis_ctrl / pelvis_inv
+选择躯干主枢轴点,BlenRig Select master_torso_pivot_point
+躯干主枢轴点,master_torso_pivot_point
+选择躯干主控制器,BlenRig Select master_torso
+躯干主控制器,master_torso
+选择右手弯曲控制器,BlenRig Select hand_roll_R
+右手掌弯曲IK控制器 / 右手掌弯曲FK控制器,palm_bend_ik_ctrl_R / palm_bend_fk_ctrl_R
+选择右手IK枢轴点,BlenRig Select hand_ik_pivot_point_R
+右手IK枢轴点,hand_ik_pivot_point_R
+选择右手IK控制器,BlenRig Select hand_ik_ctrl_R
+右手IK控制器,hand_ik_ctrl_R
+选择右手FK控制器,BlenRig Select hand_fk_R
+右手FK控制器,hand_fk_R
+选择右手指分散控制器,BlenRig Select fing_spread_R
+右手指分散控制器,fing_spread_R
+选择右小指控制器,BlenRig Select fing_lit_ctrl_R
+右小指控制器,fing_lit_ctrl_R
+选择右小指2控制器,BlenRig Select fing_lit_2_R
+右小指2控制器,fing_lit_2_R
+选择右小指3控制器,BlenRig Select fing_lit_3_R
+右小指3控制器,fing_lit_3_R
+选择右小指4控制器,BlenRig Select fing_lit_4_R
+右小指4控制器,fing_lit_4_R
+选择右无名指控制器,BlenRig Select fing_ring_ctrl_R
+右无名指控制器,fing_ring_ctrl_R
+选择右无名指2控制器,BlenRig Select fing_ring_2_R
+右无名指2控制器,fing_ring_2_R
+选择右无名指3控制器,BlenRig Select fing_ring_3_R
+右无名指3控制器,fing_ring_3_R
+选择右无名指4控制器,BlenRig Select fing_ring_4_R
+右无名指4控制器,fing_ring_4_R
+选择右中指控制器,BlenRig Select fing_mid_ctrl_R
+右中指控制器,fing_mid_ctrl_R
+选择右中指2控制器,BlenRig Select fing_mid_2_R
+右中指2控制器,fing_mid_2_R
+选择右中指3控制器,BlenRig Select fing_mid_3_R
+右中指3控制器,fing_mid_3_R
+选择右中指4控制器,BlenRig Select fing_mid_4_R
+右中指4控制器,fing_mid_4_R
+选择右食指控制器,BlenRig Select fing_ind_ctrl_R
+右食指控制器,fing_ind_ctrl_R
+选择右食指2控制器,BlenRig Select fing_ind_2_R
+右食指2控制器,fing_ind_2_R
+选择右食指3控制器,BlenRig Select fing_ind_3_R
+右食指3控制器,fing_ind_3_R
+选择右食指4控制器,BlenRig Select fing_ind_4_R
+右食指4控制器,fing_ind_4_R
+选择右拇指控制器,BlenRig Select fing_thumb_ctrl_R
+右拇指控制器,fing_thumb_ctrl_R
+选择右拇指1控制器,BlenRig Select fing_thumb_1_R
+右拇指1控制器,fing_thumb_1_R
+选择右拇指2控制器,BlenRig Select fing_thumb_2_R
+右拇指2控制器,fing_thumb_2_R
+选择右拇指3控制器,BlenRig Select fing_thumb_3_R
+右拇指3控制器,fing_thumb_3_R
+选择右小指IK控制器,BlenRig Select fing_lit_ik_R
+右小指IK控制器,fing_lit_ik_R
+选择右无名指IK控制器,BlenRig Select fing_ring_ik_R
+右无名指IK控制器,fing_ring_ik_R
+选择右中指IK控制器,BlenRig Select fing_mid_ik_R
+右中指IK控制器,fing_mid_ik_R
+选择右食指IK控制器,BlenRig Select fing_ind_ik_R
+右食指IK控制器,fing_ind_ik_R
+选择右拇指IK控制器,BlenRig Select fing_thumb_ik_R
+右拇指IK控制器,fing_thumb_ik_R
+选择右手闭合控制器,BlenRig Select hand_close_R
+右手闭合控制器,hand_close_R
+选择左手弯曲控制器,BlenRig Select hand_roll_L
+左手掌弯曲IK控制器 / 左手掌弯曲FK控制器,palm_bend_ik_ctrl_L / palm_bend_fk_ctrl_L
+选择左手IK枢轴点,BlenRig Select hand_ik_pivot_point_L
+左手IK枢轴点,hand_ik_pivot_point_L
+选择左手IK控制器,BlenRig Select hand_ik_ctrl_L
+左手IK控制器,hand_ik_ctrl_L
+选择左手FK控制器,BlenRig Select hand_fk_L
+左手FK控制器,hand_fk_L
+选择左手指分散控制器,BlenRig Select fing_spread_L
+左手指分散控制器,fing_spread_L
+选择左小指控制器,BlenRig Select fing_lit_ctrl_L
+左小指控制器,fing_lit_ctrl_L
+选择左小指2控制器,BlenRig Select fing_lit_2_L
+左小指2控制器,fing_lit_2_L
+选择左小指3控制器,BlenRig Select fing_lit_3_L
+左小指3控制器,fing_lit_3_L
+选择左小指4控制器,BlenRig Select fing_lit_4_L
+左小指4控制器,fing_lit_4_L
+选择左无名指控制器,BlenRig Select fing_ring_ctrl_L
+左无名指控制器,fing_ring_ctrl_L
+选择左无名指2控制器,BlenRig Select fing_ring_2_L
+左无名指2控制器,fing_ring_2_L
+选择左无名指3控制器,BlenRig Select fing_ring_3_L
+左无名指3控制器,fing_ring_3_L
+选择左无名指4控制器,BlenRig Select fing_ring_4_L
+左无名指4控制器,fing_ring_4_L
+选择左中指控制器,BlenRig Select fing_mid_ctrl_L
+左中指控制器,fing_mid_ctrl_L
+选择左中指2控制器,BlenRig Select fing_mid_2_L
+左中指2控制器,fing_mid_2_L
+选择左中指3控制器,BlenRig Select fing_mid_3_L
+左中指3控制器,fing_mid_3_L
+选择左中指4控制器,BlenRig Select fing_mid_4_L
+左中指4控制器,fing_mid_4_L
+选择左食指控制器,BlenRig Select fing_ind_ctrl_L
+左食指控制器,fing_ind_ctrl_L
+选择左食指2控制器,BlenRig Select fing_ind_2_L
+左食指2控制器,fing_ind_2_L
+BlenRig 选择 fing_ind_3_L,BlenRig Select fing_ind_3_L
+手指_ind_3_L,fing_ind_3_L
+BlenRig 选择 fing_ind_4_L,BlenRig Select fing_ind_4_L
+fing_ind_4_L,fing_ind_4_L
+BlenRig 选择 fing_thumb_ctrl_L,BlenRig Select fing_thumb_ctrl_L
+手指拇指控制,fing_thumb_ctrl_L
+BlenRig 选择 fing_thumb_1_L,BlenRig Select fing_thumb_1_L
+手指拇指1,fing_thumb_1_L
+BlenRig 选择 fing_thumb_2_L,BlenRig Select fing_thumb_2_L
+手指拇指2,fing_thumb_2_L
+BlenRig 选择 fing_thumb_3_L,BlenRig Select fing_thumb_3_L
+手指_拇指_3_L,fing_thumb_3_L
+BlenRig 选择 fing_lit_ik_L,BlenRig Select fing_lit_ik_L
+芬利特·伊克,fing_lit_ik_L
+BlenRig 选择 fing_ring_ik_L,BlenRig Select fing_ring_ik_L
+指环王,fing_ring_ik_L
+BlenRig 选择 fing_mid_ik_L,BlenRig Select fing_mid_ik_L
+芬格米德伊克,fing_mid_ik_L
+BlenRig 选择 fing_ind_ik_L,BlenRig Select fing_ind_ik_L
+手指尖,fing_ind_ik_L
+BlenRig 选择 fing_thumb_ik_L,BlenRig Select fing_thumb_ik_L
+手指拇指,fing_thumb_ik_L
+BlenRig 选择 hand_close_L,BlenRig Select hand_close_L
+手_关闭_L,hand_close_L
+BlenRig 选择 thigh_toon_R,BlenRig Select thigh_toon_R
+大腿卡通,thigh_toon_R
+BlenRig 选择 knee_pole_R,BlenRig Select knee_pole_R
+膝盖杆,knee_pole_R
+BlenRig 选择 shin_toon_R,BlenRig Select shin_toon_R
+暂无说明，留下第一条！,shin_toon_R
+BlenRig 选择 pelvis_toon_R,BlenRig Select pelvis_toon_R
+骨盆卡通,pelvis_toon_R
+BlenRig 选择 leg_scale_R,BlenRig Select leg_scale_R
+腿部比例,leg_scale_R
+BlenRig 选择 thigh_fk_R,BlenRig Select thigh_fk_R
+大腿_fk_R,thigh_fk_R
+BlenRig 选择 thigh_fk_ctrl_R,BlenRig Select thigh_fk_ctrl_R
+大腿_fk_ctrl_R,thigh_fk_ctrl_R
+BlenRig 选择 thigh_ik_R,BlenRig Select thigh_ik_R
+大腿_ik_R,thigh_ik_R
+BlenRig 选择 knee_toon_R,BlenRig Select knee_toon_R
+膝盖卡通,knee_toon_R
+BlenRig 选择 shin_fk_R,BlenRig Select shin_fk_R
+申_fk_R,shin_fk_R
+BlenRig 选择 shin_ik_R,BlenRig Select shin_ik_R
+申伊克,shin_ik_R
+BlenRig 选择 foot_toon_R,BlenRig Select foot_toon_R
+foot_toon_R,foot_toon_R
+BlenRig 选择 thigh_toon_L,BlenRig Select thigh_toon_L
+大腿卡通,thigh_toon_L
+BlenRig 选择 knee_pole_L,BlenRig Select knee_pole_L
+膝盖杆,knee_pole_L
+BlenRig 选择 shin_toon_L,BlenRig Select shin_toon_L
+暂无说明，留下第一条！,shin_toon_L
+BlenRig 选择 pelvis_toon_L,BlenRig Select pelvis_toon_L
+骨盆卡通,pelvis_toon_L
+BlenRig 选择 leg_scale_L,BlenRig Select leg_scale_L
+腿部比例尺,leg_scale_L
+BlenRig 选择 thigh_fk_L,BlenRig Select thigh_fk_L
+大腿,thigh_fk_L
+BlenRig 选择 thigh_fk_ctrl_L,BlenRig Select thigh_fk_ctrl_L
+大腿_fk_ctrl_L,thigh_fk_ctrl_L
+BlenRig 选择 thigh_ik_L,BlenRig Select thigh_ik_L
+大腿_ik_L,thigh_ik_L
+BlenRig 选择 knee_toon_L,BlenRig Select knee_toon_L
+膝盖痛,knee_toon_L
+BlenRig 选择 shin_fk_L,BlenRig Select shin_fk_L
+申_fk_L,shin_fk_L
+BlenRig 选择 shin_ik_L,BlenRig Select shin_ik_L
+申伊克,shin_ik_L
+BlenRig 选择 foot_toon_L,BlenRig Select foot_toon_L
+脚_卡通_L,foot_toon_L
+BlenRig 选择 toe_2_fk_R,BlenRig Select toe_2_fk_R
+toe_2_fk_R,toe_2_fk_R
+BlenRig 选择 toes_ik_ctrl_R,BlenRig Select toes_ik_ctrl_R
+脚趾_ik_ctrl_R,toes_ik_ctrl_R
+BlenRig 选择 toe_roll_2_R,BlenRig Select toe_roll_2_R
+脚趾滚动2,toe_roll_2_R
+BlenRig 选择 toe_1_fk_R,BlenRig Select toe_1_fk_R
+toe_1_fk_R,toe_1_fk_R
+BlenRig 选择 toes_ik_ctrl_mid_R,BlenRig Select toes_ik_ctrl_mid_R
+脚趾_ik_ctrl_mid_R,toes_ik_ctrl_mid_R
+BlenRig 选择 toe_roll_1_R,BlenRig Select toe_roll_1_R
+脚趾滚动_1_R,toe_roll_1_R
+BlenRig 选择 foot_R,BlenRig Select foot_R
+foot_ik_ctrl_R / foot_fk_R,foot_ik_ctrl_R / foot_fk_R
+BlenRig 选择 foot_roll_ctrl_R,BlenRig Select foot_roll_ctrl_R
+脚部滚动控制,foot_roll_ctrl_R
+BlenRig 选择 toes_spread_R,BlenRig Select toes_spread_R
+脚趾伸展,toes_spread_R
+BlenRig 选择 toe_lit_ctrl_R,BlenRig Select toe_lit_ctrl_R
+toe_lit_ctrl_R,toe_lit_ctrl_R
+BlenRig 选择 toe_lit_2_R,BlenRig Select toe_lit_2_R
+toe_lit_2_R,toe_lit_2_R
+BlenRig 选择 toe_lit_3_R,BlenRig Select toe_lit_3_R
+toe_lit_3_R,toe_lit_3_R
+BlenRig 选择 toe_lit_ik_R,BlenRig Select toe_lit_ik_R
+toe_lit_ik_R,toe_lit_ik_R
+BlenRig 选择 toe_fourth_ctrl_R,BlenRig Select toe_fourth_ctrl_R
+toe_fourth_ctrl_R,toe_fourth_ctrl_R
+BlenRig 选择 toe_fourth_2_R,BlenRig Select toe_fourth_2_R
+脚趾_第四个_2_R,toe_fourth_2_R
+BlenRig 选择 toe_fourth_3_R,BlenRig Select toe_fourth_3_R
+脚趾_第四个_3_R,toe_fourth_3_R
+BlenRig 选择 toe_fourth_4_R,BlenRig Select toe_fourth_4_R
+脚趾_第四个_4_R,toe_fourth_4_R
+BlenRig 选择 toe_fourth_ik_R,BlenRig Select toe_fourth_ik_R
+toe_fourth_ik_R,toe_fourth_ik_R
+BlenRig 选择 toe_mid_ctrl_R,BlenRig Select toe_mid_ctrl_R
+脚趾中点控制杆,toe_mid_ctrl_R
+BlenRig 选择 toe_mid_2_R,BlenRig Select toe_mid_2_R
+脚趾中部2_R,toe_mid_2_R
+BlenRig 选择 toe_mid_3_R,BlenRig Select toe_mid_3_R
+脚趾中部3_R,toe_mid_3_R
+BlenRig 选择 toe_mid_4_R,BlenRig Select toe_mid_4_R
+脚趾中部4_R,toe_mid_4_R
+BlenRig 选择 toe_mid_ik_R,BlenRig Select toe_mid_ik_R
+toe_mid_ik_R,toe_mid_ik_R
+BlenRig 选择 toe_ind_ctrl_R,BlenRig Select toe_ind_ctrl_R
+toe_ind_ctrl_R,toe_ind_ctrl_R
+BlenRig 选择 toe_ind_2_R,BlenRig Select toe_ind_2_R
+toe_ind_2_R,toe_ind_2_R
+BlenRig 选择 toe_ind_3_R,BlenRig Select toe_ind_3_R
+toe_ind_3_R,toe_ind_3_R
+BlenRig 选择 toe_ind_4_R,BlenRig Select toe_ind_4_R
+toe_ind_4_R,toe_ind_4_R
+BlenRig 选择 toe_ind_ik_R,BlenRig Select toe_ind_ik_R
+toe_ind_ik_R,toe_ind_ik_R
+BlenRig 选择 toe_big_ctrl_R,BlenRig Select toe_big_ctrl_R
+toe_big_ctrl_R,toe_big_ctrl_R
+BlenRig 选择 toe_big_2_R,BlenRig Select toe_big_2_R
+脚趾大2_R,toe_big_2_R
+BlenRig 选择 toe_big_3_R,BlenRig Select toe_big_3_R
+脚趾大3_R,toe_big_3_R
+BlenRig 选择 toe_big_ik_R,BlenRig Select toe_big_ik_R
+toe_big_ik_R,toe_big_ik_R
+BlenRig 选择 sole_ctrl_R,BlenRig Select sole_ctrl_R
+sole_ctrl_R,sole_ctrl_R
+BlenRig 选择 sole_pivot_point_R,BlenRig Select sole_pivot_point_R
+唯一枢轴点,sole_pivot_point_R
+BlenRig 选择 toe_2_fk_L,BlenRig Select toe_2_fk_L
+toe_2_fk_L,toe_2_fk_L
+BlenRig 选择 toes_ik_ctrl_L,BlenRig Select toes_ik_ctrl_L
+脚趾_ik_ctrl_L,toes_ik_ctrl_L
+BlenRig 选择 toe_roll_2_L,BlenRig Select toe_roll_2_L
+脚趾滚动,toe_roll_2_L
+BlenRig 选择 toe_1_fk_L,BlenRig Select toe_1_fk_L
+toe_1_fk_L,toe_1_fk_L
+BlenRig 选择 toes_ik_ctrl_mid_L,BlenRig Select toes_ik_ctrl_mid_L
+脚趾_ik_ctrl_mid_L,toes_ik_ctrl_mid_L
+BlenRig 选择 toe_roll_1_L,BlenRig Select toe_roll_1_L
+脚趾滚动_1_L,toe_roll_1_L
+BlenRig 选择 foot_L,BlenRig Select foot_L
+foot_ik_ctrl_L / foot_fk_L,foot_ik_ctrl_L / foot_fk_L
+BlenRig 选择 foot_roll_ctrl_L,BlenRig Select foot_roll_ctrl_L
+脚部滚动控制,foot_roll_ctrl_L
+BlenRig 选择 toes_spread_L,BlenRig Select toes_spread_L
+脚趾伸展,toes_spread_L
+BlenRig 选择 toe_lit_ctrl_L,BlenRig Select toe_lit_ctrl_L
+toe_lit_ctrl_L,toe_lit_ctrl_L
+BlenRig 选择 toe_lit_2_L,BlenRig Select toe_lit_2_L
+toe_lit_2_L,toe_lit_2_L
+BlenRig 选择 toe_lit_3_L,BlenRig Select toe_lit_3_L
+toe_lit_3_L,toe_lit_3_L
+BlenRig 选择 toe_lit_ik_L,BlenRig Select toe_lit_ik_L
+toe_lit_ik_L,toe_lit_ik_L
+BlenRig 选择 toe_fourth_ctrl_L,BlenRig Select toe_fourth_ctrl_L
+toe_fourth_ctrl_L,toe_fourth_ctrl_L
+BlenRig 选择 toe_fourth_2_L,BlenRig Select toe_fourth_2_L
+脚趾_第四个_2_L,toe_fourth_2_L
+BlenRig 选择 toe_fourth_3_L,BlenRig Select toe_fourth_3_L
+脚趾_第四个_3_L,toe_fourth_3_L
+BlenRig 选择 toe_fourth_4_L,BlenRig Select toe_fourth_4_L
+脚趾_第四_4_L,toe_fourth_4_L
+BlenRig 选择 toe_fourth_ik_L,BlenRig Select toe_fourth_ik_L
+脚趾_第四个_ik_L,toe_fourth_ik_L
+BlenRig 选择 toe_mid_ctrl_L,BlenRig Select toe_mid_ctrl_L
+脚趾中点控制,toe_mid_ctrl_L
+BlenRig 选择 toe_mid_2_L,BlenRig Select toe_mid_2_L
+脚趾中部2,toe_mid_2_L
+BlenRig 选择 toe_mid_3_L,BlenRig Select toe_mid_3_L
+脚趾中部3,toe_mid_3_L
+BlenRig 选择 toe_mid_4_L,BlenRig Select toe_mid_4_L
+脚趾中部4,toe_mid_4_L
+BlenRig 选择 toe_mid_ik_L,BlenRig Select toe_mid_ik_L
+toe_mid_ik_L,toe_mid_ik_L
+BlenRig 选择 toe_ind_ctrl_L,BlenRig Select toe_ind_ctrl_L
+toe_ind_ctrl_L,toe_ind_ctrl_L
+BlenRig 选择 toe_ind_2_L,BlenRig Select toe_ind_2_L
+toe_ind_2_L,toe_ind_2_L
+BlenRig 选择 toe_ind_3_L,BlenRig Select toe_ind_3_L
+toe_ind_3_L,toe_ind_3_L
+BlenRig 选择 toe_ind_4_L,BlenRig Select toe_ind_4_L
+toe_ind_4_L,toe_ind_4_L
+BlenRig 选择 toe_ind_ik_L,BlenRig Select toe_ind_ik_L
+toe_ind_ik_L,toe_ind_ik_L
+BlenRig 选择 toe_big_ctrl_L,BlenRig Select toe_big_ctrl_L
+toe_big_ctrl_L,toe_big_ctrl_L
+BlenRig 选择 toe_big_2_L,BlenRig Select toe_big_2_L
+脚趾大2_L,toe_big_2_L
+BlenRig 选择 toe_big_3_L,BlenRig Select toe_big_3_L
+脚趾大3,toe_big_3_L
+BlenRig 选择 toe_big_ik_L,BlenRig Select toe_big_ik_L
+脚趾大伊克,toe_big_ik_L
+BlenRig 选择 sole_ctrl_L,BlenRig Select sole_ctrl_L
+sole_ctrl_L,sole_ctrl_L
+BlenRig 选择 sole_pivot_point_L,BlenRig Select sole_pivot_point_L
+唯一枢轴点,sole_pivot_point_L
+BlenRig 选择大师,BlenRig Select master
+掌握,master
+BlenRig 选择主枢轴点,BlenRig Select master_pivot_point
+主枢轴点,master_pivot_point
+BlenRig 选择主附加项,BlenRig Select master extra
+主额外,master extra
+BlenRig 选择 ankle_toon_L,BlenRig Select ankle_toon_L
+脚踝卡通,ankle_toon_L
+BlenRig 选择 carpal_fk_L,BlenRig Select carpal_fk_L
+腕骨,carpal_fk_L
+BlenRig 选择 carpal_ik_L,BlenRig Select carpal_ik_L
+腕骨,carpal_ik_L
+BlenRig 选择 carpal_toon_L,BlenRig Select carpal_toon_L
+腕管综合症,carpal_toon_L
+BlenRig 选择 ankle_toon_R,BlenRig Select ankle_toon_R
+脚踝卡通,ankle_toon_R
+BlenRig 选择 carpal_fk_R,BlenRig Select carpal_fk_R
+腕骨,carpal_fk_R
+BlenRig 选择 carpal_ik_R,BlenRig Select carpal_ik_R
+腕骨,carpal_ik_R
+BlenRig 选择 carpal_toon_R,BlenRig Select carpal_toon_R
+腕管综合症,carpal_toon_R
+BlenRig 选择 hock_toon_L,BlenRig Select hock_toon_L
+霍克·托恩,hock_toon_L
+BlenRig 选择 tarsal_fk_L,BlenRig Select tarsal_fk_L
+跗骨,tarsal_fk_L
+BlenRig 选择 tarsal_ik_L,BlenRig Select tarsal_ik_L
+跗骨,tarsal_ik_L
+BlenRig 选择 tarsal_toon_L,BlenRig Select tarsal_toon_L
+tarsal_toon_L,tarsal_toon_L
+BlenRig 选择 hock_toon_R,BlenRig Select hock_toon_R
+hock_toon_R,hock_toon_R
+BlenRig 选择 tarsal_fk_R,BlenRig Select tarsal_fk_R
+tarsal_fk_R,tarsal_fk_R
+BlenRig 选择 tarsal_ik_R,BlenRig Select tarsal_ik_R
+tarsal_ik_R,tarsal_ik_R
+BlenRig 选择 tarsal_toon_R,BlenRig Select tarsal_toon_R
+tarsal_toon_R,tarsal_toon_R
+BlenRig 选择 fing_2_fk_L,BlenRig Select fing_2_fk_L
+手指_2_fk_L,fing_2_fk_L
+BlenRig 选择 fing_roll_2_L,BlenRig Select fing_roll_2_L
+翻滚_2_L,fing_roll_2_L
+BlenRig 选择 fing_1_fk_L,BlenRig Select fing_1_fk_L
+手指_1_fk_L,fing_1_fk_L
+BlenRig 选择 fing_roll_1_L,BlenRig Select fing_roll_1_L
+手指滚动,fing_roll_1_L
+BlenRig 选择 hand_L,BlenRig Select hand_L
+hand_ik_ctrl_L/手_fk_L,hand_ik_ctrl_L / hand_fk_L
+BlenRig 选择 hand_roll_ctrl_L,BlenRig Select hand_roll_ctrl_L
+手动滚动控制,hand_roll_ctrl_L
+BlenRig 选择 hand_sole_ctrl_L,BlenRig Select hand_sole_ctrl_L
+手控,hand_sole_ctrl_L
+BlenRig 选择 hand_sole_pivot_point_L,BlenRig Select hand_sole_pivot_point_L
+手掌枢轴点,hand_sole_pivot_point_L
+BlenRig 选择 fing_2_fk_R,BlenRig Select fing_2_fk_R
+手指_2_fk_R,fing_2_fk_R
+BlenRig 选择 fing_roll_2_R,BlenRig Select fing_roll_2_R
+手指滚动,fing_roll_2_R
+BlenRig 选择 fing_1_fk_R,BlenRig Select fing_1_fk_R
+手指_1_fk_R,fing_1_fk_R
+BlenRig 选择 fing_roll_1_R,BlenRig Select fing_roll_1_R
+手指滚动,fing_roll_1_R
+BlenRig 选择 hand_R,BlenRig Select hand_R
+hand_ik_ctrl_R/hand_fk_R,hand_ik_ctrl_R / hand_fk_R
+BlenRig 选择 hand_roll_ctrl_R,BlenRig Select hand_roll_ctrl_R
+手动滚动控制,hand_roll_ctrl_R
+BlenRig 选择 hand_sole_ctrl_R,BlenRig Select hand_sole_ctrl_R
+手_脚_控制_R,hand_sole_ctrl_R
+BlenRig 选择 hand_sole_pivot_point_R,BlenRig Select hand_sole_pivot_point_R
+手掌枢轴点 R,hand_sole_pivot_point_R
+BlenRig 选择 ear_up_R,BlenRig Select ear_up_R
+耳朵向上,ear_up_R
+BlenRig 选择 ear_R,BlenRig Select ear_R
+耳朵,ear_R
+BlenRig 选择 ear_low_R,BlenRig Select ear_low_R
+ear_low_R,ear_low_R
+BlenRig 选择 brow_ctrl_4_R,BlenRig Select brow_ctrl_4_R
+brow_ctrl_4_R,brow_ctrl_4_R
+BlenRig 选择 brow_ctrl_3_R,BlenRig Select brow_ctrl_3_R
+brow_ctrl_3_R,brow_ctrl_3_R
+BlenRig 选择 brow_ctrl_2_R,BlenRig Select brow_ctrl_2_R
+brow_ctrl_2_R,brow_ctrl_2_R
+BlenRig 选择 brow_ctrl_1_R,BlenRig Select brow_ctrl_1_R
+眉头控制1,brow_ctrl_1_R
+BlenRig 选择 brow_ctrl_R,BlenRig Select brow_ctrl_R
+brow_ctrl_R,brow_ctrl_R
+BlenRig 选择 toon_brow_R,BlenRig Select toon_brow_R
+卡通_眉毛_R,toon_brow_R
+BlenRig 选择 ear_up_L,BlenRig Select ear_up_L
+耳朵向上,ear_up_L
+BlenRig 选择 ear_L,BlenRig Select ear_L
+伯爵,ear_L
+BlenRig 选择 ear_low_L,BlenRig Select ear_low_L
+ear_low_L,ear_low_L
+BlenRig 选择 brow_ctrl_4_L,BlenRig Select brow_ctrl_4_L
+brow_ctrl_4_L,brow_ctrl_4_L
+BlenRig 选择 brow_ctrl_3_L,BlenRig Select brow_ctrl_3_L
+brow_ctrl_3_L,brow_ctrl_3_L
+BlenRig 选择 brow_ctrl_2_L,BlenRig Select brow_ctrl_2_L
+brow_ctrl_2_L,brow_ctrl_2_L
+BlenRig 选择 brow_ctrl_1_L,BlenRig Select brow_ctrl_1_L
+brow_ctrl_1_L,brow_ctrl_1_L
+BlenRig 选择 brow_ctrl_L,BlenRig Select brow_ctrl_L
+brow_ctrl_L,brow_ctrl_L
+BlenRig 选择 toon_brow_L,BlenRig Select toon_brow_L
+卡通_眉毛_L,toon_brow_L
+BlenRig 选择 frown_ctrl,BlenRig Select frown_ctrl
+皱眉控制,frown_ctrl
+BlenRig 选择 nose_bridge_1_ctrl,BlenRig Select nose_bridge_1_ctrl
+鼻桥1控制,nose_bridge_1_ctrl
+BlenRig 选择 eyelid_up_ctrl_R,BlenRig Select eyelid_up_ctrl_R
+eyelid_up_ctrl_R,eyelid_up_ctrl_R
+BlenRig 选择 eyelid_up_ctrl_3_R,BlenRig Select eyelid_up_ctrl_3_R
+眼睑向上_ctrl_3_R,eyelid_up_ctrl_3_R
+BlenRig 选择 eyelid_up_ctrl_2_R,BlenRig Select eyelid_up_ctrl_2_R
+眼睑向上_ctrl_2_R,eyelid_up_ctrl_2_R
+BlenRig 选择 eyelid_up_ctrl_1_R,BlenRig Select eyelid_up_ctrl_1_R
+眼睑向上_ctrl_1_R,eyelid_up_ctrl_1_R
+BlenRig 选择 toon_eye_out_R,BlenRig Select toon_eye_out_R
+卡通眼睛,toon_eye_out_R
+BlenRig 选择 toon_eye_up_R,BlenRig Select toon_eye_up_R
+卡通眼睛向上,toon_eye_up_R
+BlenRig 选择 student_ctrl_R,BlenRig Select pupil_ctrl_R
+学生控制权,pupil_ctrl_R
+BlenRig 选择 eye_ctrl_R,BlenRig Select eye_ctrl_R
+eye_ctrl_R,eye_ctrl_R
+BlenRig 选择 iris_ctrl_R,BlenRig Select iris_ctrl_R
+iris_ctrl_R,iris_ctrl_R
+BlenRig 选择 toon_eye_in_R,BlenRig Select toon_eye_in_R
+卡通眼睛,toon_eye_in_R
+BlenRig 选择 toon_eye_low_R,BlenRig Select toon_eye_low_R
+卡通眼睛低R,toon_eye_low_R
+BlenRig 选择 eyelid_ctrl_out_R,BlenRig Select eyelid_ctrl_out_R
+eyelid_ctrl_out_R,eyelid_ctrl_out_R
+BlenRig 选择 eyelid_low_ctrl_3_R,BlenRig Select eyelid_low_ctrl_3_R
+eyelid_low_ctrl_3_R,eyelid_low_ctrl_3_R
+BlenRig 选择 eyelid_low_ctrl_2_R,BlenRig Select eyelid_low_ctrl_2_R
+eyelid_low_ctrl_2_R,eyelid_low_ctrl_2_R
+BlenRig 选择 eyelid_low_ctrl_1_R,BlenRig Select eyelid_low_ctrl_1_R
+eyelid_low_ctrl_1_R,eyelid_low_ctrl_1_R
+BlenRig 选择 eyelid_ctrl_in_R,BlenRig Select eyelid_ctrl_in_R
+eyelid_ctrl_in_R,eyelid_ctrl_in_R
+BlenRig 选择 eyelid_low_ctrl_R,BlenRig Select eyelid_low_ctrl_R
+eyelid_low_ctrl_R,eyelid_low_ctrl_R
+BlenRig 选择 eyelid_up_ctrl_L,BlenRig Select eyelid_up_ctrl_L
+眼睑向上_ctrl_L,eyelid_up_ctrl_L
+BlenRig 选择 eyelid_up_ctrl_3_L,BlenRig Select eyelid_up_ctrl_3_L
+眼睑向上_ctrl_3_L,eyelid_up_ctrl_3_L
+BlenRig 选择 eyelid_up_ctrl_2_L,BlenRig Select eyelid_up_ctrl_2_L
+眼睑向上_ctrl_2_L,eyelid_up_ctrl_2_L
+BlenRig 选择 eyelid_up_ctrl_1_L,BlenRig Select eyelid_up_ctrl_1_L
+眼睑向上_ctrl_1_L,eyelid_up_ctrl_1_L
+BlenRig 选择 toon_eye_out_L,BlenRig Select toon_eye_out_L
+卡通眼睛,toon_eye_out_L
+BlenRig 选择 toon_eye_up_L,BlenRig Select toon_eye_up_L
+卡通眼睛向上,toon_eye_up_L
+BlenRig 选择 student_ctrl_L,BlenRig Select pupil_ctrl_L
+瞳孔控制,pupil_ctrl_L
+BlenRig 选择 eye_ctrl_L,BlenRig Select eye_ctrl_L
+eye_ctrl_L,eye_ctrl_L
+BlenRig 选择 iris_ctrl_L,BlenRig Select iris_ctrl_L
+iris_ctrl_L,iris_ctrl_L
+BlenRig 选择 toon_eye_in_L,BlenRig Select toon_eye_in_L
+卡通眼睛,toon_eye_in_L
+BlenRig 选择 toon_eye_low_L,BlenRig Select toon_eye_low_L
+卡通眼睛低 L,toon_eye_low_L
+BlenRig 选择 eyelid_ctrl_out_L,BlenRig Select eyelid_ctrl_out_L
+eyelid_ctrl_out_L,eyelid_ctrl_out_L
+BlenRig 选择 eyelid_low_ctrl_3_L,BlenRig Select eyelid_low_ctrl_3_L
+eyelid_low_ctrl_3_L,eyelid_low_ctrl_3_L
+BlenRig 选择 eyelid_low_ctrl_2_L,BlenRig Select eyelid_low_ctrl_2_L
+eyelid_low_ctrl_2_L,eyelid_low_ctrl_2_L
+BlenRig 选择 eyelid_low_ctrl_1_L,BlenRig Select eyelid_low_ctrl_1_L
+eyelid_low_ctrl_1_L,eyelid_low_ctrl_1_L
+BlenRig 选择 eyelid_ctrl_in_L,BlenRig Select eyelid_ctrl_in_L
+eyelid_ctrl_in_L,eyelid_ctrl_in_L
+BlenRig 选择 eyelid_low_ctrl_L,BlenRig Select eyelid_low_ctrl_L
+eyelid_low_ctrl_L,eyelid_low_ctrl_L
+BlenRig 选择 nose_bridge_2_ctrl,BlenRig Select nose_bridge_2_ctrl
+鼻桥2控制,nose_bridge_2_ctrl
+BlenRig 选择 nose_frown_ctrl_R,BlenRig Select nose_frown_ctrl_R
+nose_frown_ctrl_R,nose_frown_ctrl_R
+BlenRig 选择 nose_frown_ctrl_L,BlenRig Select nose_frown_ctrl_L
+nose_frown_ctrl_L,nose_frown_ctrl_L
+BlenRig 选择 cheek_ctrl_R,BlenRig Select cheek_ctrl_R
+脸颊_ctrl_R,cheek_ctrl_R
+BlenRig 选择 cheek_ctrl_3_R,BlenRig Select cheek_ctrl_3_R
+脸颊_ctrl_3_R,cheek_ctrl_3_R
+BlenRig 选择 cheek_ctrl_2_R,BlenRig Select cheek_ctrl_2_R
+脸颊_ctrl_2_R,cheek_ctrl_2_R
+BlenRig 选择 cheek_ctrl_1_R,BlenRig Select cheek_ctrl_1_R
+脸颊_ctrl_1_R,cheek_ctrl_1_R
+BlenRig 选择 cheek2_ctrl_3_R,BlenRig Select cheek2_ctrl_3_R
+cheek2_ctrl_3_R,cheek2_ctrl_3_R
+BlenRig 选择 cheek2_ctrl_2_R,BlenRig Select cheek2_ctrl_2_R
+cheek2_ctrl_2_R,cheek2_ctrl_2_R
+BlenRig 选择 cheek2_ctrl_1_R,BlenRig Select cheek2_ctrl_1_R
+cheek2_ctrl_1_R,cheek2_ctrl_1_R
+BlenRig 选择 lip_up3_ctrl_3_R,BlenRig Select lip_up3_ctrl_3_R
+lip_up3_ctrl_3_R,lip_up3_ctrl_3_R
+BlenRig 选择 lip_up3_ctrl_2_R,BlenRig Select lip_up3_ctrl_2_R
+lip_up3_ctrl_2_R,lip_up3_ctrl_2_R
+BlenRig 选择 lip_up3_ctrl_1_R,BlenRig Select lip_up3_ctrl_1_R
+lip_up3_ctrl_1_R,lip_up3_ctrl_1_R
+BlenRig 选择 lip_up2_ctrl_3_R,BlenRig Select lip_up2_ctrl_3_R
+lip_up2_ctrl_3_R,lip_up2_ctrl_3_R
+BlenRig 选择 lip_up2_ctrl_2_R,BlenRig Select lip_up2_ctrl_2_R
+lip_up2_ctrl_2_R,lip_up2_ctrl_2_R
+BlenRig 选择 lip_up2_ctrl_1_R,BlenRig Select lip_up2_ctrl_1_R
+lip_up2_ctrl_1_R,lip_up2_ctrl_1_R
+BlenRig 选择 cheek_ctrl_L,BlenRig Select cheek_ctrl_L
+cheek_ctrl_L,cheek_ctrl_L
+BlenRig 选择 cheek_ctrl_3_L,BlenRig Select cheek_ctrl_3_L
+脸颊_ctrl_3_L,cheek_ctrl_3_L
+BlenRig 选择 cheek_ctrl_2_L,BlenRig Select cheek_ctrl_2_L
+脸颊_ctrl_2_L,cheek_ctrl_2_L
+BlenRig 选择 cheek_ctrl_1_L,BlenRig Select cheek_ctrl_1_L
+脸颊_ctrl_1_L,cheek_ctrl_1_L
+BlenRig 选择 cheek2_ctrl_3_L,BlenRig Select cheek2_ctrl_3_L
+cheek2_ctrl_3_L,cheek2_ctrl_3_L
+BlenRig 选择 cheek2_ctrl_2_L,BlenRig Select cheek2_ctrl_2_L
+cheek2_ctrl_2_L,cheek2_ctrl_2_L
+BlenRig 选择 cheek2_ctrl_1_L,BlenRig Select cheek2_ctrl_1_L
+cheek2_ctrl_1_L,cheek2_ctrl_1_L
+BlenRig 选择 lip_up3_ctrl_3_L,BlenRig Select lip_up3_ctrl_3_L
+嘴唇向上3_控制3_L,lip_up3_ctrl_3_L
+BlenRig 选择 lip_up3_ctrl_2_L,BlenRig Select lip_up3_ctrl_2_L
+嘴唇向上3_控制2_L,lip_up3_ctrl_2_L
+BlenRig 选择 lip_up3_ctrl_1_L,BlenRig Select lip_up3_ctrl_1_L
+嘴唇向上3_控制_1_L,lip_up3_ctrl_1_L
+BlenRig 选择 lip_up2_ctrl_3_L,BlenRig Select lip_up2_ctrl_3_L
+嘴唇向上2控制3,lip_up2_ctrl_3_L
+BlenRig 选择 lip_up2_ctrl_2_L,BlenRig Select lip_up2_ctrl_2_L
+嘴唇向上2控制2,lip_up2_ctrl_2_L
+BlenRig 选择 lip_up2_ctrl_1_L,BlenRig Select lip_up2_ctrl_1_L
+嘴唇向上2控制1,lip_up2_ctrl_1_L
+BlenRig 选择 nostril_ctrl_R,BlenRig Select nostril_ctrl_R
+鼻孔控制,nostril_ctrl_R
+BlenRig 选择 nose_ctrl,BlenRig Select nose_ctrl
+nose_ctrl,nose_ctrl
+BlenRig 选择 nostril_ctrl_L,BlenRig Select nostril_ctrl_L
+鼻孔控制,nostril_ctrl_L
+BlenRig 选择 lip_up3_ctrl_mid,BlenRig Select lip_up3_ctrl_mid
+lip_up3_ctrl_mid,lip_up3_ctrl_mid
+BlenRig 选择 lip_up3_ctrl,BlenRig Select lip_up3_ctrl
+lip_up3_ctrl,lip_up3_ctrl
+BlenRig 选择 lip_up2_ctrl_mid,BlenRig Select lip_up2_ctrl_mid
+lip_up2_ctrl_mid,lip_up2_ctrl_mid
+BlenRig 选择 lip_up2_ctrl,BlenRig Select lip_up2_ctrl
+lip_up2_ctrl,lip_up2_ctrl
+BlenRig 选择 cheek_ctrl_4_R,BlenRig Select cheek_ctrl_4_R
+脸颊_ctrl_4_R,cheek_ctrl_4_R
+BlenRig 选择 cheek2_ctrl_4_R,BlenRig Select cheek2_ctrl_4_R
+cheek2_ctrl_4_R,cheek2_ctrl_4_R
+BlenRig 选择 lip_up3_ctrl_4_R,BlenRig Select lip_up3_ctrl_4_R
+嘴唇向上3_控制4_R,lip_up3_ctrl_4_R
+BlenRig 选择 lip_up2_ctrl_4_R,BlenRig Select lip_up2_ctrl_4_R
+lip_up2_ctrl_4_R,lip_up2_ctrl_4_R
+BlenRig 选择 cheek_ctrl_4_L,BlenRig Select cheek_ctrl_4_L
+脸颊_ctrl_4_L,cheek_ctrl_4_L
+BlenRig 选择 cheek2_ctrl_4_L,BlenRig Select cheek2_ctrl_4_L
+cheek2_ctrl_4_L,cheek2_ctrl_4_L
+BlenRig 选择 lip_up3_ctrl_4_L,BlenRig Select lip_up3_ctrl_4_L
+嘴唇向上3_控制4_L,lip_up3_ctrl_4_L
+BlenRig 选择 lip_up2_ctrl_4_L,BlenRig Select lip_up2_ctrl_4_L
+嘴唇向上2控制4,lip_up2_ctrl_4_L
+BlenRig 选择 mouth_mstr_up,BlenRig Select mouth_mstr_up
+mouth_mstr_up,mouth_mstr_up
+BlenRig 选择 mouth_corner_R,BlenRig Select mouth_corner_R
+嘴角,mouth_corner_R
+BlenRig 选择 mouth_corner_L,BlenRig Select mouth_corner_L
+嘴角,mouth_corner_L
+BlenRig 选择 lip_up_ctrl,BlenRig Select lip_up_ctrl
+唇部向上控制,lip_up_ctrl
+BlenRig 选择 lip_up_ctrl_collision,BlenRig Select lip_up_ctrl_collision
+lip_up_ctrl_collision,lip_up_ctrl_collision
+BlenRig 选择 lip_up_ctrl_3_R,BlenRig Select lip_up_ctrl_3_R
+嘴唇向上_ctrl_3_R,lip_up_ctrl_3_R
+BlenRig 选择 lip_up_ctrl_2_R,BlenRig Select lip_up_ctrl_2_R
+嘴唇向上_ctrl_2_R,lip_up_ctrl_2_R
+BlenRig 选择 lip_up_ctrl_1_R,BlenRig Select lip_up_ctrl_1_R
+唇向上_ctrl_1_R,lip_up_ctrl_1_R
+BlenRig 选择 lip_up_ctrl_mid,BlenRig Select lip_up_ctrl_mid
+唇向上控制中,lip_up_ctrl_mid
+BlenRig 选择 lip_up_ctrl_1_L,BlenRig Select lip_up_ctrl_1_L
+嘴唇向上控制键 1,lip_up_ctrl_1_L
+BlenRig 选择 lip_up_ctrl_2_L,BlenRig Select lip_up_ctrl_2_L
+嘴唇向上_ctrl_2_L,lip_up_ctrl_2_L
+BlenRig 选择 lip_up_ctrl_3_L,BlenRig Select lip_up_ctrl_3_L
+嘴唇向上_ctrl_3_L,lip_up_ctrl_3_L
+BlenRig 选择 mouth_up_ctrl,BlenRig Select mouth_up_ctrl
+mouth_up_ctrl,mouth_up_ctrl
+BlenRig 选择 lip_up_ctrl_4_R,BlenRig Select lip_up_ctrl_4_R
+嘴唇向上_ctrl_4_R,lip_up_ctrl_4_R
+BlenRig 选择 lip_up_ctrl_4_L,BlenRig Select lip_up_ctrl_4_L
+嘴唇向上_ctrl_4_L,lip_up_ctrl_4_L
+BlenRig 选择 mouth_ctrl,BlenRig Select mouth_ctrl
+mouth_ctrl,mouth_ctrl
+BlenRig 选择 mouth_low_ctrl,BlenRig Select mouth_low_ctrl
+mouth_low_ctrl,mouth_low_ctrl
+BlenRig 选择 lip_low_ctrl_3_R,BlenRig Select lip_low_ctrl_3_R
+唇低控制3,lip_low_ctrl_3_R
+BlenRig 选择 lip_low_ctrl_2_R,BlenRig Select lip_low_ctrl_2_R
+lip_low_ctrl_2_R,lip_low_ctrl_2_R
+BlenRig 选择 lip_low_ctrl_1_R,BlenRig Select lip_low_ctrl_1_R
+唇低控制1,lip_low_ctrl_1_R
+BlenRig 选择 lip_low_ctrl_mid,BlenRig Select lip_low_ctrl_mid
+唇低控制中,lip_low_ctrl_mid
+BlenRig 选择 lip_low_ctrl_1_L,BlenRig Select lip_low_ctrl_1_L
+唇低控制1,lip_low_ctrl_1_L
+BlenRig 选择 lip_low_ctrl_2_L,BlenRig Select lip_low_ctrl_2_L
+唇低控制,lip_low_ctrl_2_L
+BlenRig 选择 lip_low_ctrl_3_L,BlenRig Select lip_low_ctrl_3_L
+唇低控制3L,lip_low_ctrl_3_L
+BlenRig 选择 lip_low_ctrl_collision,BlenRig Select lip_low_ctrl_collision
+lip_low_ctrl_collision,lip_low_ctrl_collision
+BlenRig 选择 lip_low_ctrl,BlenRig Select lip_low_ctrl
+lip_low_ctrl,lip_low_ctrl
+BlenRig 选择 mouth_mstr_low,BlenRig Select mouth_mstr_low
+mouth_mstr_low,mouth_mstr_low
+BlenRig 选择 mouth_mstr_ctrl,BlenRig Select mouth_mstr_ctrl
+mouth_mstr_ctrl,mouth_mstr_ctrl
+BlenRig 选择 mouth_frown_ctrl_R,BlenRig Select mouth_frown_ctrl_R
+嘴巴_皱眉_ctrl_R,mouth_frown_ctrl_R
+BlenRig 选择 lip_low2_ctrl_3_R,BlenRig Select lip_low2_ctrl_3_R
+lip_low2_ctrl_3_R,lip_low2_ctrl_3_R
+BlenRig 选择 lip_low2_ctrl_2_R,BlenRig Select lip_low2_ctrl_2_R
+lip_low2_ctrl_2_R,lip_low2_ctrl_2_R
+BlenRig 选择 lip_low2_ctrl_1_R,BlenRig Select lip_low2_ctrl_1_R
+lip_low2_ctrl_1_R,lip_low2_ctrl_1_R
+BlenRig 选择 lip_low3_ctrl_3_R,BlenRig Select lip_low3_ctrl_3_R
+lip_low3_ctrl_3_R,lip_low3_ctrl_3_R
+BlenRig 选择 lip_low3_ctrl_2_R,BlenRig Select lip_low3_ctrl_2_R
+lip_low3_ctrl_2_R,lip_low3_ctrl_2_R
+BlenRig 选择 lip_low3_ctrl_1_R,BlenRig Select lip_low3_ctrl_1_R
+lip_low3_ctrl_1_R,lip_low3_ctrl_1_R
+BlenRig 选择 cheek_ctrl_5_R,BlenRig Select cheek_ctrl_5_R
+脸颊_ctrl_5_R,cheek_ctrl_5_R
+BlenRig 选择 chin_ctrl_3_R,BlenRig Select chin_ctrl_3_R
+下巴_ctrl_3_R,chin_ctrl_3_R
+BlenRig 选择 chin_ctrl_2_R,BlenRig Select chin_ctrl_2_R
+下巴控制,chin_ctrl_2_R
+BlenRig 选择 chin_ctrl_1_R,BlenRig Select chin_ctrl_1_R
+下巴控制,chin_ctrl_1_R
+BlenRig 选择 mouth_frown_ctrl_L,BlenRig Select mouth_frown_ctrl_L
+嘴巴_皱眉_ctrl_L,mouth_frown_ctrl_L
+BlenRig 选择 lip_low2_ctrl_3_L,BlenRig Select lip_low2_ctrl_3_L
+lip_low2_ctrl_3_L,lip_low2_ctrl_3_L
+BlenRig 选择 lip_low2_ctrl_2_L,BlenRig Select lip_low2_ctrl_2_L
+lip_low2_ctrl_2_L,lip_low2_ctrl_2_L
+BlenRig 选择 lip_low2_ctrl_1_L,BlenRig Select lip_low2_ctrl_1_L
+lip_low2_ctrl_1_L,lip_low2_ctrl_1_L
+BlenRig 选择 lip_low3_ctrl_3_L,BlenRig Select lip_low3_ctrl_3_L
+lip_low3_ctrl_3_L,lip_low3_ctrl_3_L
+BlenRig 选择 lip_low3_ctrl_2_L,BlenRig Select lip_low3_ctrl_2_L
+lip_low3_ctrl_2_L,lip_low3_ctrl_2_L
+BlenRig 选择 lip_low3_ctrl_1_L,BlenRig Select lip_low3_ctrl_1_L
+lip_low3_ctrl_1_L,lip_low3_ctrl_1_L
+BlenRig 选择 cheek_ctrl_5_L,BlenRig Select cheek_ctrl_5_L
+脸颊_ctrl_5_L,cheek_ctrl_5_L
+BlenRig 选择 chin_ctrl_3_L,BlenRig Select chin_ctrl_3_L
+下巴控制键,chin_ctrl_3_L
+BlenRig 选择 chin_ctrl_2_L,BlenRig Select chin_ctrl_2_L
+下巴控制,chin_ctrl_2_L
+BlenRig 选择 chin_ctrl_1_L,BlenRig Select chin_ctrl_1_L
+下巴控制,chin_ctrl_1_L
+BlenRig 选择 lip_low2_ctrl_mid,BlenRig Select lip_low2_ctrl_mid
+lip_low2_ctrl_mid,lip_low2_ctrl_mid
+BlenRig 选择 lip_low2_ctrl,BlenRig Select lip_low2_ctrl
+lip_low2_ctrl,lip_low2_ctrl
+BlenRig 选择 lip_low3_ctrl_mid,BlenRig Select lip_low3_ctrl_mid
+lip_low3_ctrl_mid,lip_low3_ctrl_mid
+BlenRig 选择 lip_low3_ctrl,BlenRig Select lip_low3_ctrl
+lip_low3_ctrl,lip_low3_ctrl
+BlenRig 选择 chin_ctrl_mid,BlenRig Select chin_ctrl_mid
+下巴控制中心,chin_ctrl_mid
+BlenRig 选择 chin_ctrl,BlenRig Select chin_ctrl
+下巴控制,chin_ctrl
+BlenRig Select maxi,BlenRig Select maxi
+马克西,maxi
+BlenRig 选择 head_mid_stretch,BlenRig Select head_mid_stretch
+头部中部伸展,head_mid_stretch
+BlenRig 选择 head_low_stretch,BlenRig Select head_low_stretch
+头部低垂伸展,head_low_stretch
+BlenRig 选择 dental_up_ctrl_R,BlenRig Select teeth_up_ctrl_R
+牙齿向上_ctrl_R,teeth_up_ctrl_R
+BlenRig 选择 dental_up_ctrl_L,BlenRig Select teeth_up_ctrl_L
+牙齿向上_ctrl_L,teeth_up_ctrl_L
+BlenRig 选择 dental_up_ctrl_mid_R,BlenRig Select teeth_up_ctrl_mid_R
+牙齿向上_ctrl_mid_R,teeth_up_ctrl_mid_R
+BlenRig 选择 dental_up_ctrl_mid_L,BlenRig Select teeth_up_ctrl_mid_L
+牙齿向上_ctrl_mid_L,teeth_up_ctrl_mid_L
+BlenRig 选择 dental_up_ctrl_mid,BlenRig Select teeth_up_ctrl_mid
+牙齿向上_ctrl_mid,teeth_up_ctrl_mid
+BlenRig 选择 dental_up,BlenRig Select teeth_up
+牙齿向上,teeth_up
+BlenRig 选择 dental_low_ctrl_R,BlenRig Select teeth_low_ctrl_R
+牙齿低_ctrl_R,teeth_low_ctrl_R
+BlenRig 选择 dental_low_ctrl_L,BlenRig Select teeth_low_ctrl_L
+牙齿低_控制_L,teeth_low_ctrl_L
+BlenRig 选择 dental_low_ctrl_mid_R,BlenRig Select teeth_low_ctrl_mid_R
+牙齿_低_控制_中_R,teeth_low_ctrl_mid_R
+BlenRig 选择 dental_low_ctrl_mid_L,BlenRig Select teeth_low_ctrl_mid_L
+牙齿_低_控制_中_L,teeth_low_ctrl_mid_L
+BlenRig 选择 dental_low_ctrl_mid,BlenRig Select teeth_low_ctrl_mid
+牙齿低位控制中位,teeth_low_ctrl_mid
+BlenRig 选择 dental_low,BlenRig Select teeth_low
+牙齿低,teeth_low
+BlenRig 选择 uvula_1,BlenRig Select uvula_1
+悬雍垂1,uvula_1
+BlenRig 选择 uvula_2,BlenRig Select uvula_2
+悬雍垂_2,uvula_2
+BlenRig 选择 tongue_1_fk,BlenRig Select tongue_1_fk
+tongue_1_fk,tongue_1_fk
+BlenRig 选择 tongue_2_fk,BlenRig Select tongue_2_fk
+tongue_2_fk,tongue_2_fk
+BlenRig 选择 tongue_1_ik,BlenRig Select tongue_1_ik
+舌头_1_ik,tongue_1_ik
+BlenRig 选择 tongue_2_ik,BlenRig Select tongue_2_ik
+舌头_2_ik,tongue_2_ik
+BlenRig 选择 tongue_3_ik,BlenRig Select tongue_3_ik
+舌头_3_ik,tongue_3_ik
+BlenRig 选择 tongue_mstr,BlenRig Select tongue_mstr
+舌头_mstr,tongue_mstr
+BlenRig 6 Biped Rig 更新程序,BlenRig 6 Biped Rig Updater
+将 BlenRig 6 双足装备更新至最新版本,Update BlenRig 6 biped rig to the latest version
+为旧版装备设置库覆盖,Set Library Overrides On for Legacy Rigs
+BlenRig Arm_L IK 到 FK,BlenRig Arm_L IK to FK
+将手臂切换至 FK 保持姿势,Switch Arm to FK preserving pose
+BlenRig Arm_L FK 到 IK,BlenRig Arm_L FK to IK
+将手臂切换至 IK 保持姿势,Switch Arm to IK preserving pose
+BlenRig Switch Arm_L 空间,BlenRig Switch Arm_L Space
+Switch Arm_L 保持空间姿势,Switch Arm_L Space preserving pose
+自由的,Free
+骨盆,Pelvis
+躯干,Torso
+头,Head
+Arm_L 空间开关列表,Arm_L Space Switch List
+开关臂_L 空间,Switch Arm_L Space
+BlenRig Switch Hand_L 空间,BlenRig Switch Hand_L Space
+切换 Hand_L 保持空间的姿势,Switch Hand_L Space preserving pose
+手臂,Arm
+Hand_L 空间切换列表,Hand_L Space Switch List
+切换 Hand_L 空间,Switch Hand_L Space
+BlenRig Switch Arm_L 杆间距,BlenRig Switch Arm_L Pole Space
+开关臂_L 杆空间保留姿势,Switch Arm_L Pole Space preserving pose
+Arm_L 极间距开关列表,Arm_L Pole Space Switch List
+开关臂_L 极距,Switch Arm_L Pole Space
+BlenRig Switch All Fingers_L 空间,BlenRig Switch All Fingers_L Space
+切换所有手指_L 保留空间的姿势,Switch All Fingers_L Space preserving pose
+手,Hand
+All Fingers_L 空间切换列表,All Fingers_L Space Switch List
+切换所有手指_L 空间,Switch All Fingers_L Space
+BlenRig 开关拇指手指_L 空间,BlenRig Switch Thumb Finger_L Space
+切换拇指 Finger_L 空间保留姿势,Switch Thumb Finger_L Space preserving pose
+拇指 Finger_L 空间切换列表,Thumb Finger_L Space Switch List
+切换拇指 Finger_L 空间,Switch Thumb Finger_L Space
+BlenRig Switch 食指_L 空格,BlenRig Switch Index Finger_L Space
+切换食指_L 保持空间姿势,Switch Index Finger_L Space preserving pose
+食指_L 空间切换列表,Index Finger_L Space Switch List
+切换食指_L空格,Switch Index Finger_L Space
+BlenRig Switch中指_L空间,BlenRig Switch Middle Finger_L Space
+切换中指_L 保留空间的姿势,Switch Middle Finger_L Space preserving pose
+Middle Finger_L 空间切换列表,Middle Finger_L Space Switch List
+切换中指_L空间,Switch Middle Finger_L Space
+BlenRig Switch Ring Finger_L 空间,BlenRig Switch Ring Finger_L Space
+切换无名指_L 保留空间的姿势,Switch Ring Finger_L Space preserving pose
+Ring Finger_L 空间切换列表,Ring Finger_L Space Switch List
+切换无名指_L空间,Switch Ring Finger_L Space
+BlenRig Switch Little Finger_L 空间,BlenRig Switch Little Finger_L Space
+切换小指_L 保留空间的姿势,Switch Little Finger_L Space preserving pose
+Little Finger_L 空间切换列表,Little Finger_L Space Switch List
+切换小指_L空间,Switch Little Finger_L Space
+BlenRig Leg_L IK 到 FK,BlenRig Leg_L IK to FK
+切换腿至 FK 保持姿势,Switch Leg to FK preserving pose
+将腿切换至 IK 保持姿势,Switch Leg to IK preserving pose
+BlenRig Switch Leg_L FK 空间,BlenRig Switch Leg_L FK Space
+Switch Leg_L FK 保持空间姿势,Switch Leg_L FK Space preserving pose
+Leg_L FK 空间切换列表,Leg_L FK Space Switch List
+Switch Leg_L FK 空间,Switch Leg_L FK Space
+BlenRig Switch Leg_L 杆间距,BlenRig Switch Leg_L Pole Space
+Switch Leg_L 杆保持空间姿势,Switch Leg_L Pole Space preserving pose
+脚,Foot
+Leg_L 杆间距开关列表,Leg_L Pole Space Switch List
+开关腿_L 杆间距,Switch Leg_L Pole Space
+BlenRig 销弯头_L,BlenRig Pin Elbow_L
+销式弯头_L,Pin Elbow_L
+BlenRig UnPin Elbow_L,BlenRig UnPin Elbow_L
+解开肘部_L,UnPin Elbow_L
+BlenRig Pin Knee_L,BlenRig Pin Knee_L
+别针膝盖_L,Pin Knee_L
+BlenRig UnPin Knee_L,BlenRig UnPin Knee_L
+解开膝盖_L,UnPin Knee_L
+BlenRig Arm_R IK 到 FK,BlenRig Arm_R IK to FK
+BlenRig Arm_R FK 到 IK,BlenRig Arm_R FK to IK
+BlenRig Switch Arm_R 空间,BlenRig Switch Arm_R Space
+Switch Arm_R 保持空间姿势,Switch Arm_R Space preserving pose
+Arm_R 空间开关列表,Arm_R Space Switch List
+开关 Arm_R 空间,Switch Arm_R Space
+BlenRig Switch Hand_R 空间,BlenRig Switch Hand_R Space
+切换 Hand_R 保持空间的姿势,Switch Hand_R Space preserving pose
+Hand_R 空间切换列表,Hand_R Space Switch List
+切换 Hand_R 空间,Switch Hand_R Space
+BlenRig Switch Arm_R 杆间距,BlenRig Switch Arm_R Pole Space
+开关臂_R 杆空间保留姿势,Switch Arm_R Pole Space preserving pose
+Arm_R 极间距开关列表,Arm_R Pole Space Switch List
+开关臂_R 极距,Switch Arm_R Pole Space
+BlenRig Switch All Fingers_R 空间,BlenRig Switch All Fingers_R Space
+切换所有手指_R 保留空间的姿势,Switch All Fingers_R Space preserving pose
+All Fingers_R 空间切换列表,All Fingers_R Space Switch List
+切换所有手指_R 空间,Switch All Fingers_R Space
+BlenRig 开关拇指手指_R 空间,BlenRig Switch Thumb Finger_R Space
+切换拇指手指_R 空间保留姿势,Switch Thumb Finger_R Space preserving pose
+拇指 Finger_R 空间切换列表,Thumb Finger_R Space Switch List
+切换拇指 Finger_R 空间,Switch Thumb Finger_R Space
+BlenRig Switch 食指_R 空格,BlenRig Switch Index Finger_R Space
+切换食指_R 保持空间姿势,Switch Index Finger_R Space preserving pose
+食指_R 空格切换列表,Index Finger_R Space Switch List
+切换食指_R空格,Switch Index Finger_R Space
+BlenRig Switch中指_R空间,BlenRig Switch Middle Finger_R Space
+切换中指_R 保留空间的姿势,Switch Middle Finger_R Space preserving pose
+Middle Finger_R 空间切换列表,Middle Finger_R Space Switch List
+切换中指_R空格,Switch Middle Finger_R Space
+BlenRig Switch Ring Finger_R 空间,BlenRig Switch Ring Finger_R Space
+切换无名指_R 保留空间的姿势,Switch Ring Finger_R Space preserving pose
+Ring Finger_R 空间切换列表,Ring Finger_R Space Switch List
+切换无名指_R空间,Switch Ring Finger_R Space
+BlenRig Switch Little Finger_R 空间,BlenRig Switch Little Finger_R Space
+切换小指_R 保留空间的姿势,Switch Little Finger_R Space preserving pose
+Little Finger_R 空间切换列表,Little Finger_R Space Switch List
+切换小指_R空间,Switch Little Finger_R Space
+BlenRig Leg_R IK 到 FK,BlenRig Leg_R IK to FK
+BlenRig Switch Leg_R FK 空间,BlenRig Switch Leg_R FK Space
+Switch Leg_R FK 保持空间姿势,Switch Leg_R FK Space preserving pose
+Leg_R FK 空间切换列表,Leg_R FK Space Switch List
+切换 Leg_R FK 空间,Switch Leg_R FK Space
+BlenRig Switch Leg_R 杆间距,BlenRig Switch Leg_R Pole Space
+切换 Leg_R 杆 空间保留姿势,Switch Leg_R Pole Space preserving pose
+Leg_R 杆间距开关列表,Leg_R Pole Space Switch List
+开关腿_R 杆间距,Switch Leg_R Pole Space
+BlenRig 销肘部_R,BlenRig Pin Elbow_R
+销式弯头_R,Pin Elbow_R
+BlenRig UnPin Elbow_R,BlenRig UnPin Elbow_R
+解开 Elbow_R,UnPin Elbow_R
+BlenRig Pin Knee_R,BlenRig Pin Knee_R
+别针膝盖_R,Pin Knee_R
+BlenRig UnPin Knee_R,BlenRig UnPin Knee_R
+解开膝盖_R,UnPin Knee_R
+BlenRig 开关头部空间,BlenRig Switch Head Space
+切换头部空间保留姿势,Switch Head Space preserving pose
+顶空开关清单,Head Space Switch List
+开关顶部空间,Switch Head Space
+BlenRig 开关颈部空间,BlenRig Switch Neck Space
+切换颈部空间保留姿势,Switch Neck Space preserving pose
+颈部空间切换列表,Neck Space Switch List
+切换颈部空间,Switch Neck Space
+BlenRig 切换外观空间,BlenRig Switch Look Space
+切换外观 保留空间的姿势,Switch Look Space preserving pose
+身体,Body
+查看空间切换列表,Look Space Switch List
+切换注视空间,Switch Look Space
+切换眼镜空间,BlenRig Switch Eyeglasses Space
+切换眼镜空间并保留姿势,Switch Eyeglasses Space preserving pose
+眼镜空间切换列表,Eyeglasses Space Switch List
+切换帽子空间,Switch Eyeglasses Space
+切换帽子空间并保留姿势,BlenRig Switch Hat Space
+帽子空间切换列表,Switch Hat Space preserving pose
+切换手部配饰空间,Hat Space Switch List
+切换手部配饰空间并保留姿势,Switch Hat Space
+手部配饰空间切换列表,BlenRig Switch Hand Accessory Space
+重置左手枢轴,Switch Hand Accessory Space preserving pose
+重置左手枢轴并保留姿势,Hand_L
+重置右手枢轴,Hand_R
+重置右手枢轴并保留姿势,Hand Accessory Space Switch List
+重置主躯干枢轴,Switch Hand Accessory Space
+重置主躯干枢轴并保留姿势,BlenRig Reset Hand_L Pivot
+重置主身体枢轴,Reset Hand_L Pivot preserving pose
+重置主身体枢轴并保留姿势,BlenRig Reset Hand_R Pivot
+重置主枢轴,Reset Hand_R Pivot preserving pose
+重置主枢轴并保留姿势,BlenRig Reset Master_Torso Pivot
+躯干 IK 转 FK,Reset Master_Torso Pivot preserving pose
+切换躯干到 FK 并保留姿势,BlenRig Reset Master_Body Pivot
+躯干 FK 转 IK,Reset Master_Body Pivot preserving pose
+切换躯干到 IK 并保留姿势,BlenRig Reset Master Pivot
+对齐脊柱,Reset Master Pivot preserving pose
+对齐脊柱控制器以匹配当前姿势,BlenRig Torso IK to FK
+躯干 IK 无缝切换到 FK,Switch Torso to FK preserving pose
+躯干 FK 无缝切换到 IK,BlenRig Torso FK to IK
+躯干无缝切换到反转,Switch Torso to IK preserving pose
+躯干无缝切换到 FK 或 IK,BlenRig Align Spine
+头部 IK 转 FK,Aligns spine controllers to match current pose
+头部 FK 转 IK,BlenRig Torso Snap IK FK
+切换眼镜空间,Prepare seamless switch to FK
+切换眼镜空间并保留姿势,BlenRig Torso Snap FK IK
+眼镜空间切换列表,Prepare seamless switch to IK
+切换帽子空间,BlenRig Torso Snap INV UP
+切换帽子空间并保留姿势,Prepare seamless switch to Invert torso
+帽子空间切换列表,BlenRig Torso Snap UP INV
+切换手部配饰空间,Prepare seamless switch to FK or IK Torso
+切换手部配饰空间并保留姿势,BlenRig Head Snap IK FK
+手部配饰空间切换列表,BlenRig Head Snap FK IK
+左臂 IK 转 FK,BlenRig Arm_L Snap IK FK
+左臂 FK 转 IK,BlenRig Arm_L Snap FK IK
+右臂 IK 转 FK,BlenRig Arm_R Snap IK FK
+右臂 FK 转 IK,BlenRig Arm_R Snap FK IK
+左腿 IK 转 FK,BlenRig Leg_L Snap IK FK
+左腿 FK 转 IK,BlenRig Leg_L Snap FK IK
+右腿 IK 转 FK,BlenRig Leg_R Snap IK FK
+右腿 FK 转 IK,BlenRig Leg_R Snap FK IK
+根据 item.rotation_mode 将旋转从矩阵 mat 复制到 item,Copy rotation to item from matrix mat depending on item.rotation_mode
+"返回运算符执行函数的生成函数 ","Generator function that returns exec functions for operators "
+返回基本运算符的生成函数,Generator function that returns the basic operator
+从复制列表及其相关函数生成运算符,Generate ops from the copy list and its associated functions
+循环选定的骨骼并对其执行 funk,Loop over selected bones and execute funk on them
+卡点,Snap Points
+中心环笼,Center loop Cage
+BlenRig 6 网眼烤盘,BlenRig 6 Mesh Baking Panel
+烘烤,Baking
+烘焙网,Bake Mesh
+重量转移,Weights Transfer
+传送重量,Transfer Weights
+光线距离,Ray Distance:
+贴图,Mapping:
+添加修改器,Add Modifiers
+添加头部修改器,Add Head Mofiiers
+添加手部修饰器,Add Hands Mofiiers
+添加形状键,Add Shapekeys
+添加身体塑形键,Add Body Shapekeys
+添加手指形状键,Add Fingers Shapekeys
+添加脚趾形状键,Add Toes Shapekeys
+添加面部形状键,Add Face Shapekeys
+绑定网格变形,Bind Mesh Deform
+绑定网格变形（快速）,Bind Mesh Deform (Fast)
+绑定网格变形（最终）,Bind Mesh Deform (Final)
+解除绑定网格变形,Unbind Mesh Deform
+BlenRig 6 网格和曲线面板,BlenRig 6 Lattice & Curves Panel
+编辑网格位置,Edit Lattice Position
+应用网格位置,Apply Lattice Position
+左侧,left_side
+右侧,right_side
+眼睛,eyes
+脸,face
+眉毛,eyebrows
+face_mech,face_mech
+内口,inner_mouth
+手,hands
+脚趾,toes
+身体,body
+嘴唇,lips
+face_controls,face_controls
+其他的,others
+IK/FK 切换,IK/FK Toggle
+ik_head,ik_head
+ik_torso,ik_torso
+反转躯干层次结构,Invert Torso Hierarchy
+投资者躯干,inv_torso
+ik_arm_L,ik_arm_L
+ik_arm_R,ik_arm_R
+ik_leg_L,ik_leg_L
+ik_toes_all_L,ik_toes_all_L
+ik_leg_R,ik_leg_R
+ik_toes_all_R,ik_toes_all_R
+ik_fing_ind_L,ik_fing_ind_L
+ik_fing_mid_L,ik_fing_mid_L
+ik_fing_lit_L,ik_fing_lit_L
+ik_fing_thumb_L,ik_fing_thumb_L
+ik_fing_ind_R,ik_fing_ind_R
+ik_fing_mid_R,ik_fing_mid_R
+ik_fing_lit_R,ik_fing_lit_R
+ik_fing_thumb_R,ik_fing_thumb_R
+ik_fing_all_R,ik_fing_all_R
+ik_fing_all_L,ik_fing_all_L
+隔离旋转,Isolate Rotation
+铰链头,hinge_head
+铰链颈,hinge_neck
+铰链臂 L,hinge_arm_L
+铰链臂,hinge_arm_R
+铰链手,hinge_hand_L
+铰链手,hinge_hand_R
+铰链,hinge_fing_ind_L
+铰链中部,hinge_fing_mid_L
+铰链,hinge_fing_lit_L
+铰链_指_拇指,hinge_fing_thumb_L
+铰链,hinge_fing_ind_R
+铰链,hinge_fing_mid_R
+铰链,hinge_fing_lit_R
+铰链_指_拇指_R,hinge_fing_thumb_R
+铰链,hinge_fing_all_R
+铰链,hinge_fing_all_L
+铰链腿L,hinge_leg_L
+铰链脚趾全部,hinge_toes_all_L
+铰链腿,hinge_leg_R
+铰链脚趾全部,hinge_toes_all_R
+旋转空间,Rotation Space
+空间头,space_head
+太空颈,space_neck
+空间臂 L,space_arm_L
+空间臂 R,space_arm_R
+空间_手_L,space_hand_L
+太空_手_R,space_hand_R
+空间指指点点,space_fing_ind_L
+空间_fing_mid_L,space_fing_mid_L
+空间指环,space_fing_ring_L
+空间_fing_lit_L,space_fing_lit_L
+空格_手指_拇指,space_fing_thumb_L
+空间指指点点,space_fing_ind_R
+空间_fing_mid_R,space_fing_mid_R
+空间指环,space_fing_ring_R
+空间_fing_lit_R,space_fing_lit_R
+空格_手指_拇指,space_fing_thumb_R
+空间_fing_all_R,space_fing_all_R
+空间,space_fing_all_L
+空间腿长,space_leg_L
+空间_脚趾_全部_L,space_toes_all_L
+空间腿R,space_leg_R
+空间_脚趾_全部_R,space_toes_all_R
+极点空间,Pole Space
+空间_臂_ik_极_L,space_arm_ik_pole_L
+空间_臂_ik_极_R,space_arm_ik_pole_R
+空间腿_ik_pole_L,space_leg_ik_pole_L
+空间腿_ik_pole_R,space_leg_ik_pole_R
+切换杆目标,Toggle pole Target
+切换臂 ik 杆,toggle_arm_ik_pole_L
+切换臂_ik_pole_R,toggle_arm_ik_pole_R
+切换腿ikpoleL,toggle_leg_ik_pole_L
+切换腿ikpoleR,toggle_leg_ik_pole_R
+弹性 IK 切换,Stretchy IK Toggle
+卡通头,toon_head
+卡通躯干,toon_torso
+卡通手臂,toon_arm_L
+卡通手臂R,toon_arm_R
+卡通腿,toon_leg_L
+卡通腿,toon_leg_R
+卡通_手指_拇指,toon_fing_thumb_L
+卡通_fing_index_L,toon_fing_index_L
+卡通_fing_middle_L,toon_fing_middle_L
+卡通戒指,toon_fing_ring_L
+卡通,toon_fing_little_L
+卡通手指拇指,toon_fing_thumb_R
+卡通_fing_index_R,toon_fing_index_R
+卡通_fing_middle_R,toon_fing_middle_R
+卡通戒指,toon_fing_ring_R
+卡通,toon_fing_little_R
+销_肘部_L,pin_elbow_L
+销_肘部_R,pin_elbow_R
+pin_knee_L,pin_knee_L
+pin_knee_R,pin_knee_R
+目光所及之处,Target of Eyes
+look_switch,look_switch
+切换比例调整模式,Toggle Reproportion Mode
+重新比例,reproportion
+切换面部绑定驱动程序,Toggle Face Riggin Drivers
+切换面部驱动程序,toggle_face_drivers
+切换 Flex 驱动程序,Toggle Flex Drivers
+切换柔性驱动器,toggle_flex_drivers
+切换动态整形驱动程序,Toggle Dynamic Shaping Drivers
+切换动态驱动程序,toggle_dynamic_drivers
+切换车身装配驱动程序,Toggle Body Rigging Drivers
+切换主体驱动程序,toggle_body_drivers
+切换装备中的手指,Toggle fingers in rig
+切换手指,toggle_fingers_L
+在装备中切换食指,Toggle index finger in rig
+切换手指索引,toggle_fingers_index_L
+在装备中切换中指,Toggle middle finger in rig
+切换手指中间,toggle_fingers_middle_L
+在装备中切换无名指,Toggle ring finger in rig
+切换手指环 L,toggle_fingers_ring_L
+在装备中切换小指,Toggle little finger in rig
+切换手指,toggle_fingers_little_L
+在装备中切换拇指手指,Toggle thumb finger in rig
+切换手指,toggle_fingers_thumb_L
+切换脚趾,Toggle toes in rig
+切换_脚趾_L,toggle_toes_L
+切换钻机中的食指趾,Toggle index toe in rig
+toggle_toes_index_L,toggle_toes_index_L
+切换装备中的中趾,Toggle middle toe in rig
+切换脚趾_中间_L,toggle_toes_middle_L
+切换装备中的第四个脚趾,Toggle fourth toe in rig
+toggle_toes_fourth_L,toggle_toes_fourth_L
+切换装备中的小脚趾,Toggle little toe in rig
+toggle_toe_little_L,toggle_toe_little_L
+切换大脚趾,Toggle big toe in rig
+切换脚趾_大_L,toggle_toes_big_L
+切换手指,toggle_fingers_R
+切换手指索引,toggle_fingers_index_R
+切换手指中间,toggle_fingers_middle_R
+切换手指环,toggle_fingers_ring_R
+切换手指,toggle_fingers_little_R
+切换手指,toggle_fingers_thumb_R
+切换脚趾,toggle_toes_R
+切换脚趾索引,toggle_toes_index_R
+切换_脚趾_中间_R,toggle_toes_middle_R
+切换_脚趾_第四_R,toggle_toes_fourth_R
+toggle_toe_little_R,toggle_toe_little_R
+切换脚趾_大_R,toggle_toes_big_R
+上眼睑向下运动限制,Upper Eyelid Downwards Movement Limit
+眼睑下移极限,EYELID_DOWN_LIMIT_L
+上眼睑向上运动限制,Upper Eyelid Upwards Movement Limit
+眼睑向上限制长度,EYELID_UP_LIMIT_L
+眼睑向外运动限制,Eyelid Outwards Movement Limit
+眼睑外翻极限,EYELID_OUT_LIMIT_L
+眼睑内翻运动受限,Eyelid Inwards Movement Limit
+眼睑下垂长度,EYELID_IN_LIMIT_L
+眼睛向下看时自动移动,Automatic movement for when eye looks down
+眼睛向下跟随,EYE_DOWN_FOLLOW_L
+眼睛向上看时自动运动,Automatic movement for when eye looks up
+眼睛向上跟随,EYE_UP_FOLLOW_L
+脸颊向上移动时的自动移动范围,Automaic movement range for when cheek moves up
+自动检查,AUTO_CHEEK_L
+眼睑下移限制,EYELID_DOWN_LIMIT_R
+眼睑向上限制,EYELID_UP_LIMIT_R
+眼睑外翻极限,EYELID_OUT_LIMIT_R
+眼睑下垂_限制,EYELID_IN_LIMIT_R
+眼睛向下跟随,EYE_DOWN_FOLLOW_R
+眼睛向上看并跟随右眼,EYE_UP_FOLLOW_R
+自动检查,AUTO_CHEEK_R
+皱眉动作的变换范围,Transform range for frown action
+皱眉限制,FROWN_LIMIT_L
+皱眉限制,FROWN_LIMIT_R
+皱眉限制,FROWN_LIMIT
+嘴角上扬时的自动移动范围,Automaic movement range for when mouth corner moves up
+自动微笑,AUTO_SMILE_L
+向下移动限制,Downwards movement limit
+CHEEK_DOWN_LIMIT_L,CHEEK_DOWN_LIMIT_L
+向上移动限制,Upwards movement limit
+CHEEK_UP_LIMIT_L,CHEEK_UP_LIMIT_L
+自动微笑,AUTO_SMILE_R
+CHEEK_DOWN_LIMIT_R,CHEEK_DOWN_LIMIT_R
+CHEEK_UP_LIMIT_R,CHEEK_UP_LIMIT_R
+转角移出时自动向后移动,Automatic backwards movement when corner moves out
+自动后退,AUTO_BACK_L
+向内移动限制,Inwards movement limit
+限制长度,IN_LIMIT_L
+向外移动限制,Outwards movement limit
+输出限制,OUT_LIMIT_L
+上限,UP_LIMIT_L
+下限,DOWN_LIMIT_L
+前向移动限制,Forwards movement limit
+前向极限,FORW_LIMIT_L
+后退移动限制,Backwards movement limit
+后退限制,BACK_LIMIT_L
+自动后退,AUTO_BACK_R
+限制输入,IN_LIMIT_R
+输出限制,OUT_LIMIT_R
+上限,UP_LIMIT_R
+下限,DOWN_LIMIT_R
+前进极限,FORW_LIMIT_R
+后退限制,BACK_LIMIT_R
+限制,IN_LIMIT
+输出限制,OUT_LIMIT
+mouth_ctrl 旋转时的微笑率,Smile rate for mouth_ctrl roatation
+微笑限制,SMILE_LIMIT
+U_M控制器变换量,Transformation amount for U_M controllers
+控制限制,U_M_CTRL_LIMIT
+mouth_ctrl 垂直运动时下颌旋转率,Jaw rotation rate for mouth_ctrl vertical movement
+下颌旋转,JAW_ROTATION
+下颌向下旋转限位,Jaw downwards rotation limit
+下颌向下限制,JAW_DOWN_LIMIT
+下颌向上旋转限制,Jaw upwards rotation limit
+下颌向上限制,JAW_UP_LIMIT
+关节位移模拟,joint displacement simulation
+现实关节手指腐烂,realistic_joints_fingers_rot_L
+现实关节手指loc_L,realistic_joints_fingers_loc_L
+现实关节脚趾腐烂,realistic_joints_toes_rot_L
+现实关节脚趾loc_L,realistic_joints_toes_loc_L
+现实关节肘部位置,realistic_joints_elbow_loc_L
+现实关节肘部腐烂,realistic_joints_elbow_rot_L
+现实关节_手腕_腐烂,realistic_joints_wrist_rot_L
+现实关节踝关节腐烂,realistic_joints_ankle_rot_L
+现实关节膝盖位置,realistic_joints_knee_loc_L
+现实关节膝盖腐烂,realistic_joints_knee_rot_L
+现实关节手指腐烂,realistic_joints_fingers_rot_R
+现实关节手指loc_R,realistic_joints_fingers_loc_R
+现实关节脚趾腐烂,realistic_joints_toes_rot_R
+现实关节脚趾loc_R,realistic_joints_toes_loc_R
+现实关节肘部位置,realistic_joints_elbow_loc_R
+现实关节肘部腐烂,realistic_joints_elbow_rot_R
+现实关节_手腕腐烂,realistic_joints_wrist_rot_R
+现实关节_脚踝腐烂,realistic_joints_ankle_rot_R
+现实关节膝盖位置,realistic_joints_knee_loc_R
+现实关节膝盖腐烂,realistic_joints_knee_rot_R
+拉伸和挤压的体积变化,Volume Variation for stretch and squash
+体积变化臂 L,volume_variation_arm_L
+体积变化手指 L,volume_variation_fingers_L
+体积变化腿长,volume_variation_leg_L
+体积变化量,volume_variation_toes_L
+体积变化_臂_R,volume_variation_arm_R
+体积变化手指,volume_variation_fingers_R
+体积变化腿R,volume_variation_leg_R
+体积变化_脚趾_R,volume_variation_toes_R
+体积变化_躯干,volume_variation_torso
+音量变化头,volume_variation_head
+颈部体积变化,volume_variation_neck
+体积保存骨骼运动愤怒,Volume Preservation Bones Movement Rage
+体积保存手指向下,volume_preservation_fingers_down_L
+volume_preservation_knuckles_down_L,volume_preservation_knuckles_down_L
+volume_preservation_knuckles_up_L,volume_preservation_knuckles_up_L
+音量保留_手掌向下_L,volume_preservation_palm_down_L
+体积保存手指向下,volume_preservation_fingers_down_R
+volume_preservation_knuckles_down_R,volume_preservation_knuckles_down_R
+volume_preservation_knuckles_up_R,volume_preservation_knuckles_up_R
+音量保留_手掌向下_R,volume_preservation_palm_down_R
+体积保留_底部_L,volume_preservation_sole_down_L
+体积保存_脚趾_关节向上_L,volume_preservation_toe_knuckles_up_L
+体积保存脚趾向下,volume_preservation_toes_down_L
+体积保存_底部_R,volume_preservation_sole_down_R
+volume_preservation_toe_knuckles_up_R,volume_preservation_toe_knuckles_up_R
+体积保存_脚趾向下_R,volume_preservation_toes_down_R
+BlenRig 6 添加装备,BlenRig 6 add rigs
+调用区域获胜,INVOKE_REGION_WIN
+BlenRig 6 双脚架,BlenRig 6 Biped Rig
+选项卡,Tab
+要展开的图形界面选项卡,Tab of the gui to expand
+切换属性显示,Toggle properties display
+显示所有捕捉按钮,Display ALL Snapping Buttons
+显示捕捉按钮,Display Snapping Buttons
+显示所有自定义属性,Show ALL Custom Properties
+调整头部额外选项,Tweak head extra options
+调整手臂额外选项,Tweak arms extra options
+调整手指额外选项,Tweak fingers extra options
+调整腿部额外选项,Tweak legs extra options
+调整配件选项,Tweak accessories options
+设置面部移动限制,Set limits to facial movement
+定义嘴唇弧度的参数,Parameters to define lips curvature
+关闭面部动作以进行编辑,Toggle facial actions off for editing
+面部碰撞偏移,Face Collisions Offset
+面部弯曲骨骼设置,Face Bendy Bones Settings
+设置 IK 骨骼的初始旋转,Set the initial rotation of IK bones
+自动运动参数,Parameters for automated movement
+模拟骨骼厚度对关节旋转的影响,Simulate how bone thickness affects joint rotation
+体积保存骨骼运动定义,Volume Preservation Bones Movement Definition
+切换身体部位,Toggle body parts
+身体弯曲骨骼设置,Body Bendy Bones Settings
+身体碰撞偏移,Body Collisions Offset
+烘焙到形状键,Bake to Shape Key
+将网格烘焙为单独的形状键,Bake the mesh into a separate Shape Key
+启用移动网格,Enable to Move Lattice
+允许移动网格，禁止修改网格,Let move Lattice disabling modif hoocks
+仅选定骨骼,Selected Bones Only
+仅对选定的骨骼执行对齐,Perform aligning only on selected bones
+自定义图层,Gui Custom Layers
+显示上下文,Display Context
+在此面板中显示的上下文类型。,Type of context to display in this panel.
+显示上下文 2,Display Context 2
+与对象的距离,Distance from object
+调整笼子与对象的距离,Ajust the distance of Cage to object
+选择组,Selection Sets
+便于选择的骨骼组列表,List of groups of bones for easy selection
+活动选择集,Active Selection Set
+当前活动选择集的索引,Index of the currently active selection set
+姿势,Pose
+POSE_MT_selection_sets_select,POSE_MT_selection_sets_select
+BlenRig 紧凑型图层方案,BlenRig Compact Layers Scheme
+"利用骨骼自动隐藏功能，以紧凑的方案组织图层 ","Organize layers in a compact scheme relying on bone auto-hiding "
+BlenRig 扩展图层方案,BlenRig Expanded Layers Scheme
+"按身体部位和 FK / IK 组织图层 ","Organize layers by body parts and FK / IK "
+BlenRig 6 添加双足装配,BlenRig 6 Add Biped Rig
+生成 BlenRig 6 双足装配,Generates BlenRig 6 biped rig
+复制旋转,Copy Rotation
+变形_torso_ik_ctrl,Transformation_torso_ik_ctrl
+复制缩放,Copy Scale
+阻尼轨迹,Damped Track
+拉伸到_REPROP,Stretch To_REPROP
+切换柔性缩放,Toggle Flex Scaling
+为选中的骨骼创建部件,Creates a widget for selected bone
+创建,Create
+相对尺寸,Relative size
+形状大小与骨骼大小成比例,Shapes size proportionnal to bone size
+全局尺寸,Global Size
+位置,Location
+位置部件,Location widget
+旋转,Rotation
+旋转部件 尚未运行,Rotate the widget NOT YET WORKING
+编辑选定骨骼的部件,Edit the widget for selected bone
+编辑,Edit
+切换回纟,Switch back to the armature
+返回纟,Return to armature
+将部件与骨骼变换相匹配,Match the widget to the bone transforms
+匹配骨骼变换,Match bone transforms
+如果以 .L 或 .R 命名，则对称到另一侧,"Symmetrize to the opposite side, if it is named with a .L or .R"
+对称,Symmetrize
+将选定的网格对象添加到骨骼形状库,Add selected mesh object to Bone Shapes Library
+添加形状,Add Shapes
+从骨骼形状库中移除选定的部件对象,Remove selected widget object from the Bone Shapes Library
+删除形状,Remove Shapes
+隐藏取消隐藏骨骼部件集合,HideUnhide the bone widget collection
+集合可见性,Collection Visibilty
+删除 WDGT 集合中未使用的对象,Delete unused objects in the WDGT collection
+删除未使用的形状,Delete Unused Shapes
+清除所选姿势骨骼中的形状,Clear shapes from selected pose bones
+清除形状,Clear Shapes
+重新同步形状名称,Resync Shapes Names
+在所选姿势骨骼中重新设置形状的左/右比例和大小,unificate shapes scale and size from L/R in selected pose bones
+对称形状的大小/比例,Symmetrize Shapes Size/Scale
+为骨骼创建唯一形状,Make Unique Shape for Bone
+制作独特的,Make Unique
+骨骼形状,Bone Shapes
+形状,Shape
+自动匹配骨骼变换,Automatic Match Bone Transforms
+自动对称形状,Automatic Symmetrize Shape
+形状选择,Shapes Select
+至骨骼,To bone
+对称形状,Symmetrize Shape
+匹配骨骼变换,Match Bone Transforms
+清除骨骼形状,Clear Bone Shapes
+骨骼形状特效,Bone Shapes Specials
+将形状添加至库,Add Shapes to library
+从库中删除形状,Remove Shapes from library
+骨骼形状特效_编辑,Bone Shapes Specials_edit
+骨骼形状前缀,Bone Shapes prefix
+为部件对象选择前缀,Choose a prefix for the widget objects
+骨骼形状集合名称,Bone Shapes collection name
+为将出现的形状选择一个集合名称,Choose a name for the collection the shapes will appear
+形状前缀,Shapes Prefix
+集合名称,Collection name
+BlenRig_temp,BlenRig_temp
+骨骼名称,Bone Name
+集合名称,Set Name
+是否已选择,Is Selected
+特殊选择集,Selection Sets Specials
+选择选择集,Choose Selection Set
+新建选择集,New Selection Set
+选择选择集,Select Selection Set
+EXEC_DEFAULT,EXEC_DEFAULT
+操作符仅适用于姿势模式下的电枢类型对象。,Operator only available for objects of type armature in pose mode.
+操作符仅在纟有选定的选择集时可用。,Operator only available if the armature has a selected selection set.
+删除所有选择集,Delete All Sets
+删除所有选择集,Deletes All Selection Sets
+从所有选择集中删除所选骨骼,Remove Selected Bones from All Sets
+从所有选择集中删除所选骨骼,Removes the Selected Bones from All Sets
+在列表中移动选择集,Move Selection Set in List
+将激活的选择集在列表中向上/向下移动,Move the active Selection Set up/down the list of sets
+移动方向,Move Direction
+"移动活动 ""选择集 ""的方向： 上（默认）或下",Direction to move the active Selection Set: UP (default) or DOWN
+创建选择集,Create Selection Set
+创建一个新的空选择集,Creates a new empty Selection Set
+删除选择集,Delete Selection Set
+删除一个选择集,Delete a Selection Set
+将骨骼添加到选择集,Add Bones to Selection Set
+将选中的骨骼添加到选择集,Add selected bones to Selection Set
+创建选择集,BLENRIG_MT_selection_set_create
+"从 ""选择集 ""中移除骨骼",Remove Bones from Selection Set
+"从 ""选择集 ""中删除选中的骨骼",Remove selected bones from Selection Set
+"将 ""选择集 ""中的骨骼添加到当前选区",Add Selection Set bones to current selection
+选择集索引,Selection Set Index
+选择哪个选择集；-1 使用活动选择集,Which Selection Set to select; -1 uses the active Selection Set
+取消选择集,Deselect Selection Set
+从当前选择中删除选择集骨骼,Remove Selection Set bones from current selection
+创建并向选择集添加骨骼,Create and Add Bones to Selection Set
+用当前选中的骨骼创建新的选择集,Creates a new Selection Set with the currently selected bones
+复制选择集,Copy Selection Set(s)
+将选中的选择集复制到剪贴板,Copies the selected Selection Set(s) to the clipboard
+粘贴选择集,Paste Selection Set(s)
+从剪贴板添加新的选择集,Adds new Selection Set(s) from the Clipboard
+骨骼选择集,Bone Selection Set
+将 JSON 中的选择集（一个或多个）添加到当前装备中。,Add the selection sets (one or more) from JSON to the current rig.
+Blenrig 指南,Blenrig Guide
+运行 Blenrig 互动指南并在 3d 视口中显示,Run Blenrig interactive guide and show it inside 3d viewport
+关闭,Close
+显示比例指南,Show Reproportion Guide
+显示数据传输指南,Show Data Transfer Guide
+数据传输,datatransfer
+显示网格变形指南,Show Mesh Deform Guide
+mdef,mdef
+网格,lattices
+显示操作指南,Show Actions Guide
+动作,actions
+显示权重绘制指南,Show Weight Painting Guide
+权重,weights
+显示高级设置指南,Show Advanced Settings Guide
+rig_settings,rig_settings
+显示形状键指南,Show Shapekeys Guide
+形状键,shapekeys
+在安全环境下调用步骤操作,Call Step Action within a safe context
+在安全范围内加载步骤图像,Load Step Images within a safe context
+Lorem ipsum...,Lorem ipsum...
+INVOKE_DEFAULT,INVOKE_DEFAULT
+BlenRig 转移顶点群,BlenRig Transfer Vgroups
+将顶点群组从选定对象转移到活动对象,Transfer Vertex Groups from selected object to active object
+BlenRig 转移顶点群的转移指南,BlenRig Transfer Vgroups for Transfer Guide
+"将顶点群组从选定对象转移到导图中的活动对象 ","Transfer Vertex Groups from selected object to active object within the guide "
+BlenRig 测试角色如何随装配移动,BlenRig Test how the Character moves with the Rig
+测试角色如何随装配移动,Test how the Character moves with the Rig
+BlenRig 添加头部修改器,BlenRig add Head Modifiers
+根据网格变形添加常用的头部变形修改器,Add commonly used modifiers for Head Deformation based on Mesh Deform
+电枢,Armature
+网格变形,MeshDeform
+修正平滑,CorrectiveSmooth
+腮帮子_L,Cheek_Puff_L
+腮红_R,Cheek_Puff_R
+LATTICE_EYE_L,LATTICE_EYE_L
+LATTICE_EYE_R,LATTICE_EYE_R
+LATTICE_BROW,LATTICE_BROW
+LATTICE_MOUTH,LATTICE_MOUTH
+LATTICE_HEAD,LATTICE_HEAD
+细分,Subdivision
+BlenRig 添加眼睛修改器,BlenRig add Eyes Modifiers
+为眼睛变形添加常用修改器,Add commonly used modifiers for Eye Deformation
+BlenRig 添加牙齿修改器,BlenRig add Teeth Modifiers
+添加用于牙齿变形的常用修改器,Add commonly used modifiers for Teeth Deformation
+BlenRig 添加手部修改器,BlenRig add Hands Modifiers
+为基于网格变形的手部变形添加常用修改器,Add commonly used modifiers for Hands Deformation based on Mesh Deform
+BlenRig 添加身体修改器,BlenRig add Body Modifiers
+添加网格变形修改器,Add Mesh Deform modifier
+BlenRig 为指南定义角色身体部分,BlenRig Define Character Body part for Guide
+为向导定义角色身体部分,Define Character Body part for Guide
+BlenRig 将活动衔铁设置为 BlenRig 导向衔铁,BlenRig Set Active Armature as BlenRig Armature for Guide
+将活动衔铁设置为导轨的BlenRig衔铁,Set Active Armature as BlenRig Armature for Guide
+BlenRig 绑定网格变形修改器,BlenRig Bind Mdef Modifiers
+绑定网格变形修改器,Binds Mesh Deform modifier
+三角化,Triangulate
+快速绑定,Fast Binding
+BlenRig 引导绑定 Mdef 修改器,BlenRig Guide Bind Mdef Modifiers
+BlenRig 解除绑定 Mdef 修改器,BlenRig Unbind Mdef Modifiers
+解除绑定网格变形修改器,Unbinds Mesh Deform modifier
+BlenRig Guide 解除绑定 Mdef 修改器,BlenRig Guide Unbind Mdef Modifiers
+BlenRig 编辑网格变形笼,BlenRig Edit Mesh Deform Cage
+编辑 MDef Cage。这将首先解除网格变形的绑定，然后才能编辑笼子。,"Edit MDef Cage. This will Unbind Mesh Deform first, in order to Edit the Cage"
+BlenRig 添加身体形状键,BlenRig add Body Shapkeys
+为肢体添加常用的形状键。通常在 Mdef Cage 中使用。,Add commonly used shapekeys for the body. Typically used in the Mdef Cage
+BlenRig 添加手指形状键,BlenRig add Fingers Shapkeys
+为手指添加形状键,Add shapekeys for the fingers
+BlenRig 添加脚趾形状键,BlenRig add Toes Shapkeys
+为脚趾添加形状键,Add shapekeys for the toes
+BlenRig 添加脸部形状键,BlenRig add Face Shapkeys
+为脸部添加形状键,Add shapekeys for the Face
+形状键,ShapeKeys
+BlenRig 更新形键驱动器,BlenRig Update Shapkey Driver
+根据装配体的当前姿势和数值更新活动形键驱动器,Update Active Shapkey Driver based on the current Pose and Values of the Rig
+BlenRig 更新面部形键驱动程序,BlenRig Update Face Shapkeys Drivers
+根据当前面部移动范围值更新面部形键驱动程序,Update Facial Shapkeys Drivers based on the current Facial Movement Ranges Values
+BlenRig 镜像塑像驱动程序,BlenRig Mirror Shapkeys Drivers
+镜像所有驱动程序的值,Mirror the values of all drivers
+选择侧面,Choose Side
+BlenRig 镜像活动形键驱动器,BlenRig Mirror Active Shapkey Driver
+将活动形键的驱动程序镜像到其另一侧,Mirror the driver of the active shapekey to its opposite side
+BlenRig 复制形状键到其他形状键,BlenRig Copy Shapekey to other Shapekeys
+将形键复制到指定的形键,Copy Shapekey to specified Shapekeys
+BlenRig 重置活动形键,BlenRig Reset Active Shapekey
+重置活动形键,Reset Active Shapekey
+BlenRig 根据当前姿势创建用于雕刻形键的对象,BlenRig Create Object for Sculpting Shapekey from current Pose
+从当前姿势创建用于雕刻形状键的对象,Create Object for Sculpting Shapekey from current Pose
+雕刻姿势,Sculpt_Pose
+新建雕刻,New_Sculpt
+BlenRig 将雕刻对象应用到活动形键,BlenRig Apply Sculpt Object to Active Shapekey
+将雕刻对象应用于激活的形状键,Apply Sculpt Object to Active Shapekey
+BlenRig 取消雕刻并返回角色,BlenRig Cancel Sculpt and Return to Character
+取消雕刻并返回角色,Cancel Sculpt and Return to Character
+BlenRig 手动分配雕刻源和目标,BlenRig Manually Assign the Sculpt Source and Target
+手动指定雕刻源和目标,Manually Assign the Sculpt Source and Target
+BlenRig 更新活动形键,BlenRig Update Active Shapekey
+更新活动形状键,Update Active Shapekey
+BlenRig 更新所有对侧形键,BlenRig Update all opposite side Shapekeys
+更新所有对侧形状键,Update all opposite side Shapekeys
+BlenRig 从 L 向 R 镜像晶格变换,BlenRig Mirror Lattice Transforms from L to R
+镜像将 LATTICE_EYE_L 变换镜像到 LATTICE_EYE_R,Mirror Mirror the LATTICE_EYE_L transforms to LATTICE_EYE_R
+BlenRig 切换权重绘制模式,BlenRig Toggle Weight Painting Mode
+在 BlenRig 指南中切换配重绘制,Toggle Weight Painting in BlenRig Guide
+BlenRig 切换形状键编辑模式,BlenRig Toggle Shapekey Editting Mode
+在 BlenRig 指南中切换形状键编辑模式,Toggle Shapekey Editting in BlenRig Guide
+BlenRig 镜像 VP 和 RJ 值,BlenRig Mirror VP & RJ Values
+BlenRig 镜像体积保持和真实关节值,BlenRig Mirror Volume Preservation and Realistic Joints Values
+BlenRig 接头选择,BlenRig Joint Select
+滚动接头列表,Scroll through the joints list
+BlenRig Vgroup Select（BlenRig顶点组选择,BlenRig Vgroup Select
+在顶点组列表中滚动,Scroll through the Vertex Groups list
+BlenRig 选择网格变形顶点组,BlenRig Select Mdef VGroup
+选择网格变形顶点组,Select Mesh Deform Vertex Group
+BlenRig 编辑修正平滑顶点组,BlenRig Edit Corrective Smooth VGroup
+编辑所选对象上的修正平滑顶点组,Edit Corrective Smooth Vertex Group on Selected Object
+将骨骼捕捉到光标,BlenRig Snap Bone to Cursor
+将骨骼捕捉到光标,Snap Bone to Cursor
+BlenRig 镜像顶点组,BlenRig Mirror Vertex Groups
+镜像顶点组,Mirror Vertex Groups
+装配指南,BlenRig Guide
+装配辅助工具 ：,Rigging Assistants :
+1 - 比例指南,1 - Reproportion Guide
+2 - 权重转移指南,2 - Weights Transfer Guide
+3 - 网格变形指南,3 - Mesh Deform Guide
+4 - 网格指南,4 - Lattices Guide
+5 - 重量绘制指南,5 - Weight Painting Guide
+6 - 动作指南,6 - Actions Guide
+7 - 高级设置指南,7 - Advanced Settings Guide
+8 - 形状键指南,8 - Shapekeys Guide
+选项,Options
+语言,Language
+图像比例,Image Scale
+步骤指南,Steps Guide
+步骤,Steps
+显示步骤指南,Show Steps Guide
+锁定装配体中心骨骼的 X 变换,Lock the X Transform for the Center Bones of the Rig
+锁定中心骨骼,Lock Center Bones
+生成雕刻对象时考虑平滑修改器,Take Smooth Modifiers into account when Generating the Sculpt Object
+使用平滑修改器,Use Smooth Modifiers
+"首选项中 ""仅插入可用关键帧 ""的状态",State of Only Insert Available Keyframes in Preferences
+仅插入可用,Only Insert Available
+自动镜像 VP 和 RJ 值,Auto Mirror VP and RJ values
+在步骤更改时自动镜像已编辑的真实关节和体积保持值,Automatically Mirror Edited Realistic Joints and Volume Preservation value on Step Change
+形状键列表,Shapekey List
+自动镜像形状键,Auto Mirror Shapekeys
+在步骤更改时自动镜像已编辑的形状键,Automatically Mirror Edited Shapkeys on Step Change
+传输光线距离,Transfer Ray Distance
+映射,Mapping
+定义字符的向外限制,Define the Outwards Limit of the Character
+嘴角向外界限,Mouth Corner Out Limit
+定义字符的向内界限,Define the Inwards Limit of the Character
+口角向内界限,Mouth Corner In Limit
+定义字符的向上界限,Define the Upwards Limit of the Character
+口角向上限值,Mouth Corner Up Limit
+定义字符的下限,Define the Downwards Limit of the Character
+口角下限,Mouth Corner Down Limit
+定义字符的向后限值,Define the Backwards Limit of the Character
+口角向后界限,Mouth Corner Back Limit
+定义字符的向前限值,Define the Forwards Limit of the Character
+口角向前限值,Mouth Corner Forwards Limit
+定义下巴向上旋转的最大限度,Define the maximum amount of Upwards rotation for the Jaw
+下颚向上旋转限值,Jaw Upwards Rotation Limit
+定义下颌向下旋转的最大限度,Define the maximum amount of Downwards rotation for the Jaw
+下颌向下旋转限值,Jaw Downwards Rotation Limit
+定义面颊向上移动的最大幅度,Define the maximum amount of Upwards movement for the Cheek
+面颊上移限值,Cheek Upwards Limit
+定义面颊向下移动的最大幅度,Define the maximum amount of Downwards movement for the Cheek
+面颊向下限值,Cheek Downwards Limit
+定义鼻子皱眉时向上移动的最大幅度,Define the maximum amount of Upwards movement for when Frowning the Nose
+鼻子皱眉限制,Nose Frown Limit
+定义 U 声母控制器的最大移动量,Define the maximum amount of movement of the U vowel controller
+U_O_M 限值,U_O_M Limit
+定义皱眉时嘴角向下移动的最大幅度,Define the maximum amount of Downwards movement for when Frowning the Mouth
+嘴角皱眉限值,Mouth Frown Limit
+定义下巴皱眉时向下运动的最大幅度,Define the maximum amount of Downwards movement for when Frowning the Chin
+下巴皱眉限值,Chin Frown Limit
+定义上眼皮向上移动的最大幅度,Define the maximum amount of Upwards movement of the Upper Eyelid
+上眼皮向上限值,Upper Eyelid Up Limit
+定义上眼睑向下运动的最大幅度,Define the maximum amount of Downwards movement of the Upper Eyelid
+上眼睑向下限值,Upper Eyelid Down Limit
+定义下眼睑向下移动的最大幅度,Define the maximum amount of Downwards movement of the Lower Eyelid
+下眼睑向下限值,Lower Eyelid Down Limit
+定义下眼睑向上移动的最大幅度,Define the maximum amount of Upwards movement of the Lower Eyelid
+下眼睑上移限值,Lower Eyelid Up Limit
+定义眼球向外旋转的最大幅度,Define the maximum amount of Outwards Rotation of the Eye
+眼睑向外极限,Eyelid Out Limit
+定义眼球向内旋转的最大幅度,Define the maximum amount of Inwards Rotation of the Eye
+眼睑内收限值,Eyelid In Limit
+定义眨眼率,Define the Blink Rate
+眨眼率,Blink Rate
+肉眼率,Fleshy Eyes Rate
+手臂运动时肩部自动向前旋转,Shoulder Automatic Forwards Rotation on Arm movement
+肩部向前,Shoulder Forwards
+手臂运动时肩部自动向后旋转,Shoulder Automatic Backwards Rotation on Arm movement
+肩部向后,Shoulder Backwards
+手臂运动时肩部自动上旋,Shoulder Automatic Upwards Rotation on Arm movement
+肩向上,Shoulder Upwards
+手臂运动时肩部自动向下旋转,Shoulder Automatic Downwards Rotation on Arm movement
+肩部向下,Shoulder Downwards
+脚辊控制器旋转范围,Foot Roll Controllers Rotation Range
+脚掌滚动控制器旋转,Foot Roll Controller Rotation
+脚趾 1 开始滚动的角度,Angle for toe 1 to start rolling
+脚趾 1 旋转开始,Toe 1 Rotation Start
+脚趾 2 开始滚动的角度,Angle for toe 2 to start rolling
+脚趾 2 旋转开始,Toe 2 Rotation Start
+拉伸和挤压音量变化,Stretch & Squash Volume Variation
+手臂量变,Arms Volume Variation
+手指运动量变化,Fingers Volume Variation
+腿部变量,Legs Volume Variation
+脚趾运动量变化,Toes Volume Variation
+脚地板偏移值,Feet Floor Offset Value
+脚地板偏移,Feet Floor Offset
+眼睑 1 地面偏移值,Eyelid 1 Floor Offset Value
+眼睑 1 地面偏移值,Eyelid 1 Floor Offset
+眼睑 2 地面偏移值,Eyelid 2 Floor Offset Value
+眼睑 2 地面偏移值,Eyelid 2 Floor Offset
+眼睑 3 地面偏移值,Eyelid 3 Floor Offset Value
+眼睑 3 地面偏移值,Eyelid 3 Floor Offset
+唇 1 地面偏移值,Lip 1 Floor Offset Value
+唇 1 地面偏移值,Lip 1 Floor Offset
+唇 2 地面偏移值,Lip 2 Floor Offset Value
+唇 2 地面偏移值,Lip 2 Floor Offset
+唇 3 地面偏移值,Lip 3 Floor Offset Value
+唇缘 3 地面偏移,Lip 3 Floor Offset
+定义在使用 Mouth_Ctrl 向外移动时，嘴角向后移动的程度，代表牙齿的基本体积,"Define how much the Mouth Corners move Backwards when they move Outwards with Mouth_Ctrl, representing the underlying volume of the teeth"
+嘴角自动后移,Mouth Corner Auto Back
+定义角色微笑时脸颊上扬的幅度,Define how much the Cheek raises when the character smiles
+脸颊微笑跟随率,Cheek Smile Following Rate
+定义上眼睑跟随眼球向上移动的幅度,Define how much the Upper Eyelid follows the upwards movement of the Eye
+上眼睑向上跟随,Upper Eylid Up Follow
+定义上眼睑跟随眼球向下运动的幅度,Define how much the Upper Eyelid follows the downwards movement of the Eye
+上眼睑向下跟随,Upper Eylid Down Follow
+定义下眼睑跟随眼球向上运动的程度,Define how much the Lower Eyelid follows the upwards movement of the Eye
+下眼睑上移,Lower Eylid Up Follow
+定义下眼睑跟随眼球向下运动的程度,Define how much the Lower Eyelid follows the downwards movement of the Eye
+下眼睑向下跟随,Lower Eylid Down Follow
+定义下眼睑跟随脸颊向上移动的程度,Define how much the Lower Eyelid follows the Upwards movement of the Cheek
+下眼睑跟随脸颊,Lower Eylid Cheek Follow
+定义嘴唇移动时的弧度,Define the Curvature of the lips when they move
+嘴唇弧度,Lip Curvature
+定义嘴唇关节向嘴角伸展的程度,Define how much the joints of the lip stretch towards the mouth corner
+唇 1 刚度,Lip 1 Rigidity
+唇 2 刚度,Lip 2 Rigidity
+嘴唇 3 刚度,Lip 3 Rigidity
+调整值 (XYZ)，以覆盖嘴唇的默认曲率,Tweak value (XYZ) to override the default curvature of the lips
+嘴唇 1 运动覆盖,Lip 1 motion Override
+嘴唇 2 动作覆盖,Lip 2 motion Override
+嘴唇 3 运动覆盖,Lip 3 motion Override
+定义 BBone 垂直曲率,Define BBone Vertical Curvature
+垂直曲线输入,Vertical Curve In
+定义 BBone 深度曲率,Define BBone Depth Curvature
+深度曲线输入,Depth Curve In
+垂直曲线输出,Vertical Curve Out
+深度曲线输出,Depth Curve Out
+重量绘制指南中骨骼的角度,Angle for Bone in Weight Painting Guide
+X 旋转,X Rotation
+X 负旋转,X Negative Rotation
+Y 旋转,Y Rotation
+Y 负旋转,Y Negative Rotation
+Z 旋转,Z Rotation
+Z 负旋转,Z Negative Rotation
+骨骼在重量绘制指南中的位置,Location for Bone in Weight Painting Guide
+X 位置,X Location
+Y 位置,Y Location
+Z 位置,Z Location
+重量绘制指南中骨骼的刻度,Scale for Bone in Weight Painting Guide
+X 刻度,X Scale
+Y 刻度,Y Scale
+Z 标尺,Z Scale
+滚动查看关节的不同旋转角度,Scroll through the different rotations of the joint
+6 个步骤,6 Steps
+4 个步骤,4 Steps
+2 个步骤,2 Steps
+在 BlenRig 向导中切换骨骼可见性,Toggle Bone Visibility in BlenRig Guides
+显示所有骨骼,Show All Bones
+在 BlenRig 操作指南中切换变形骨骼的可见性,Toggle Deformation Bone Visibility in BlenRig Actions Guide
+显示变形骨骼,Show Deformation Bones
+在 BlenRig 权重转移指南中切换 Mdef Cage 的可见性,Toggle Mdef Cage Visibility in BlenRig Weights Transfer Guide
+显示定义笼,Show Mdef Cage
+BlenRig 角色身体对象,BlenRig Character Body Objects
+配重绘制指南中的关节列表,Joint List for Weight Painting Guide
+权重绘制的可见骨骼列表,Visible bones list for Weight Painting
+用于编辑形状键的活动形状键列表,Active Shapekeys List for Shapekeys Editting
+.,.
+BlenRig_Empty,BlenRig_Empty
+形状键+,Shape Keys+
+使用当前姿势更新驱动程序,Update Driver with Current Pose
+更新所有面部驱动程序,Update All Facial Drivers
+镜像活动形状键驱动程序,Mirror Active Shapekey Driver
+镜像所有形状键驱动程序,Mirror All Shapekeys Drivers
+添加预定义形状键,Add Predefined Shapekeys
+添加/复制,Add / Copy
+父级,Parent
+非父级,Unparent
+层次结构,Hierarchy
+选择...,Select...
+全部,All
+无,None
+无,Inv.
+MESH_UL_BlenRig_shape_keys_plus,MESH_UL_BlenRig_shape_keys_plus
+键块,key_blocks
+active_shape_key_index,active_shape_key_index
+范围：,Range:
+最小值,Min
+最大值,Max
+混合：,Blend:
+类型：,Type:
+Expression：,Expression:
+对象,Object
+骨骼,Bone
+类型,Type
+模式,Mode
+空间,Space
+"对象 ","Object "
+{0:.3f},{0:.3f}
+形状键 添加特殊效果,Shape Key Add Specials
+选定 (,Selected (
+从混合中新建形状,New Shape From Mix
+新建文件夹,New Folder
+清除形状键,Clear Shape Keys
+形状键 添加特殊效果（选中）,Shape Key Add Specials (Selected)
+形状键复制特殊效果,Shape Key Copy Specials
+复制形状键，镜像,"Copy Shape Key, Mirrored"
+复制形状键，镜像（拓扑图）,"Copy Shape Key, Mirrored (Topology)"
+形状键复制特殊效果（已选中）,Shape Key Copy Specials (Selected)
+复制形状键,Copy Shape Key
+其他形状键特效,Other Shape Key Specials
+将默认文件夹图标设置为,Set Default Folder Icon to
+镜像形状键（拓扑）,Mirror Shape Key (Topology)
+其他形状键特效（已选中）,Other Shape Key Specials (Selected)
+将父级设置为,Set Parent to
+清除父级,Clear Parents
+"取消父级 ","Unparent from "
+将父级设置为（已选）,Set Parent to (Selected)
+将文件夹图标设置为,Set Folder Icon to
+交换（激活）,Swap (Active)
+标准,Standard
+特殊,Special
+杂项,Miscellaneous
+通用 BlenRig 形状键,Generic BlenRig Shape Keys
+添加形状放置,Add Shape Placement
+亲缘放置,Parenting Placement
+取消亲和放置,Unparenting Placement
+自动绑定,Auto Parent
+自动将新形状绑定到活动文件夹中,Automatically parent new shapes to the active folder
+缩进,Indentation
+缩进文件夹内容,Indentation of folder contents
+显示驱动程序,Show Driver
+显示过滤后的文件夹内容,Show Filtered Folder Contents
+显示正在过滤的文件夹内容，即使其内容没有被过滤。,"Show contents of a folder that is being filtered, even if its contents don"
+仅显示活动形状,Show Active Shapes Only
+只显示值高于特定阈值的形状键,Only show shape keys with a value above a certain threshold
+活动阈值,Active Threshold
+只显示该值以上的形状键,Only show shape keys above this value
+翻转活动阈值,Flip Active Threshold
+只显示低于阈值而不是高于阈值的值,Only show values lower than the threshold instead of higher
+如果可能，返回 l[i] 的值，否则返回 d。,"Returns the value of l[i] if possible, otherwise d."
+"文件夹 ","Folder "
+"键 ","Key "
+移动形状键及其容量范围内的所有内容。,Moves the shape key and all in its capacity range.
+设置为文件夹图标,Set As Folder Icon
+设置文件夹图标,Sets the folder icon
+交换,Swap
+设置默认值,Set Default
+设为父级,Set As Parent
+设置父级,Sets the parent
+添加形状键,Add Shape Key
+为对象添加形状键,Add shape key to the object
+删除形状键,Remove Shape Key
+从对象中移除形状键,Remove shape key from the object
+复制形状,Copy Shape
+复制现有形状键,Copy existing shape key
+移动形状键,Move Shape Key
+在列表中向上/向下移动形状键,Move shape key up/down in the list
+选择/取消选择形状键,Select/Deselect Shape Key
+选择此形状键,Select this shape key
+展开/折叠,Expand/Collapse
+显示或隐藏此文件夹,Show or hide this folder
+取消文件夹分组,Ungroup Folder
+取消此文件夹的分组,Ungroup this folder
+更新驱动程序,Update Driver
+强制更新此驱动程序,Force update this driver
+添加输入变量,Add Input Variable
+为该驱动程序添加新变量,Add a new variable for this driver
+删除变量,Remove Variable
+从驱动程序中删除变量,Remove variable from the driver
+复制变量,Copy Variable
+复制此变量,Copy this variable
+移动变量,Move Variable
+在列表中向上/向下移动该变量,Move this variable up/down in the list
+[ 调试 ] 文件夹数据,[ DEBUG ] Folder Data
+手动创建文件夹数据,Manually create folder data
+文件夹迭代,Folder Iterations
+缩进文件夹的次数,Number of times to indent the folder
+子文件夹,Children
+文件夹的子文件夹数量，不包括子文件夹的子文件夹,"The amount of children the folder has, not including children of children"
+展开,Expand
+展开或折叠文件夹,Expand or collapse the folder
+图标对,Icon Pair
+文件夹展开或折叠时使用的图标对,The pair of icons used when the folder is expanded or collapsed
+交换图标,Swap Icons
+交换文件夹展开或折叠时使用的图标,Swap the icons used for when the folder is expanded or collapsed
+主体设置,Body Settings
+折叠,Cage_snapping
+X 镜像,X-Mirror
+调整笼,Adjust Cage
+值,value
+重放平滑,Repiter Smooth
+因子平滑,Factor Smooth
+动态整形,Dynamic Shaping
+动态塑形,DYNAMIC SHAPING
+头部,Head:
+{},{}
+脖子：,Neck:
+手臂：,Arm_R:
+躯干：,Torso:
+手臂：,Arm_L:
+前臂_R：,Forearm_R:
+Hand_R：,Hand_R:
+胸部：,Chest:
+肋骨：,Ribs:
+腰部：,waist:
+骨盆：,pelvis:
+前臂_L：,Forearm_L:
+Hand_L：,Hand_L:
+右腿：,Leg_R:
+腿长：,Leg_L:
+Shin_R：,Shin_R:
+Foot_R：,Foot_R:
+Shin_L：,Shin_L:
+脚长：,Foot_L:
+面部设置,Facial Settings
+操作助手指南,Actions Assistant Guide
+警告！姿势不会镜像到另一侧。建议使用 X-Mirror。,WARNING! Pose will not be mirrored to the other side. Using X-Mirror is recommended.
+切换休息姿势,Toggle Rest Pose
+定义运动范围,Define Range of Motion
+数据传输助手指南,Data Transfer Assistant Guide
+头部重量网格编辑选项,Head Weights Mesh Editing Options
+手部重量网格编辑选项,Hands Weights Mesh Editing Options
+设置头部对象,Set Head Object
+将选定对象定义为“头部对象”,Define selected as Head Object
+设置手对象,Set Hands Object
+将选定对象定义为手对象,Define selected as Hands Object
+转移头部重量,Transfer Head Weights
+角色头部编辑选项,Character Head Editing Options
+面部变形,Face Deformation
+添加头部修饰符,Add Head Modifiers
+测试变形,Test Defomation
+转移手持重物,Transfer Hand Weights
+角色手部编辑选项,Character Hands Editing Options
+手部变形,Hands Deformation
+添加手部修饰符,Add Hands Modifiers
+眼睛变形,Eyes Deformation
+添加左眼修饰符,Add Left Eye Modifiers
+添加右眼修饰符,Add Right Eye Modifiers
+口腔内部变形,Inner Mouth Deformation
+添加口腔内部修饰符,Add Inner Mouth Modifiers
+整洁对称,Clean Symmetry
+镜像所有顶点组,Mirror All Vertex Groups
+格子助手指南,Lattices Assistant Guide
+晶格位置,Lattice Position
+镜像晶格变换,Mirror Lattice Transforms
+网格变形助手指南,Mesh Deform Assistant Guide
+定义使用网格变形的对象,Define Objects that use Mesh Deform
+设置主体对象,Set Body Objects
+Mdef 笼式自动包装,Mdef Cage Automatic Wrapping
+Mdef 笼子选项,Mdef Cage Options
+形变,Deformation
+编辑 Mdef 笼子,Edit Mdef Cage
+报告助理指南,Repoportion Assistant Guide
+脊柱弯曲,Spine Curvature
+上曲率,Upper Curvature
+曲率较低,Lower Curvature
+手指切换,Fingers Toggles
+常规切换,General Toggle
+切换所有右手指,Toggle All Right Fingers
+切换所有左手指,Toggle All Left Fingers
+个别切换,Individual Toggles
+右手拇指,Right Thumb
+右索引,Right Index
+右中,Right Middle
+右环,Right Ring
+右小,Right Little
+左手拇指,Left Thumb
+左索引,Left Index
+左中,Left Middle
+左环,Left Ring
+剩下一点点,Left Little
+脚趾开关,Toes Toggles
+切换所有右脚趾,Toggle All Right Toes
+切换所有左脚趾,Toggle All Left Toes
+恰到好处,Right Big
+右第四,Right Fourth
+左大,Left Big
+左四,Left Fourth
+设置眼睛位置,Set Eyes Location
+将视线对准光标,Snap Eye to Cursor
+曲线值,Curve Values
+垂直进入,Vertical In
+垂直出,Vertical Out
+深度,Depth in
+深度,Depth Out
+垂直的,Vertical
+Y 向右曲线,Curve in Y Right
+Y 向左曲线,Curve in Y Left
+曲线出 Y 右,Curve out Y Right
+曲线出 Y 左,Curve out Y Left
+深度,Depth
+X 向右曲线,Curve in X Right
+X 向左曲线,Curve in X Left
+向外弯曲 X 右,Curve out X Right
+向外弯曲 X 向左,Curve out X Left
+上唇,Upper Lips
+深度,Depth In
+拉链,Zipper
+下唇,Lower Lips
+全部烘焙,Bake All
+自定义对齐,Custom Alignments
+IK 旋转覆盖,IK Rotation Override
+蒙版编辑选项,Mask Editing Options
+将顶点捕捉到面,Snap vertex to Face
+折断,Snap
+装备高级设置助手指南,Rig Advanced Settings Assistant Guide
+显示选项,Display Options
+肩部自动机芯,Shoulder Automatic Movement
+Shoulder_L 前锋,Shoulder_L Forwards
+Shoulder_L 向后,Shoulder_L Backwards
+Shoulder_L 向上,Shoulder_L Upwards
+Shoulder_L 向下,Shoulder_L Downwards
+躯干旋转速度：,Torso Rotation Rate:
+脊柱 3,Spine 3
+脊柱 2,Spine 2
+脊柱 1,Spine 1
+颈部旋转速度：,Neck Rotation Rate:
+颈部 3,Neck 3
+颈部 2,Neck 2
+颈部 1,Neck 1
+躯干伸展曲率：,Torso Stretching Curvature:
+曲线,Curve
+骨盆补偿运动：,Pelvis Compensation Movement:
+速度,Rate
+脚部滚动：,Foot Roll:
+控制器旋转,Controller Rotation
+关节1抬升起始角度,Joint 1 Raising Start Angle
+关节2提升起始角度,Joint 2 Raising Start Angle
+挤压和拉伸体积变化：,Squash & Stretch Volume Variation:
+手臂,Arm_L
+手指_L,Fingers_L
+腿长,Leg_L
+脚趾_L,Toes_L
+脖子,Neck
+脚部碰撞：,Feet Collision:
+脚_L,Foot_L
+眼睑碰撞：,Eyelids Collision:
+眨眼频率：,Blink Rate:
+眼睛向上运动遵循：,Eye Upwards Movement Follow:
+上眼睑,Upper Eyelid
+下眼睑,Lower Eyelid
+眼睛向上向下跟随：,Eye Upwards Downwards Follow:
+肉眼：,Fleshy Eyes:
+下眼睑脸颊运动遵循：,Lower Eyelid Cheek Movement Follow:
+脸颊 关注,Cheek Follow
+脸颊微笑运动关注：,Cheek Smile Movement Follow:
+微笑跟随,Smile Follow
+嘴角向后张力：,Mouth Corner Backwards Tension:
+向后张力,Backwards Tension
+唇缘接头碰撞：,Lip Joints Collision:
+唇中地板偏移,Lip Mid Floor Offset
+唇形控制器碰撞：,Lip Controller Collision:
+唇形控制地板偏移,Lip Ctrl Floor Offset
+唇部曲率：,Lip Curvature:
+唇口接头刚度：,Lip Joints Rigidity:
+关节 1 刚度,Joint 1 Rigidity
+关节 2 刚度,Joint 2 Rigidity
+关节 3 刚度,Joint 3 Rigidity
+关节覆盖：,Joints Override:
+十,X
+是,Y
+是,Z
+关节 1 覆盖,Joint 1 Override
+关节 2 覆盖,Joint 2 Override
+关节 3 覆盖,Joint 3 Override
+Shapekeys 助手指南,Shapekeys Assistant Guide
+切换形键编辑,Toggle Shapekey Editting
+编辑修正平滑 Vgroup,Edit Corrective Smooth Vgroup
+雕刻形键,Sculpt Shapekey
+生成雕刻物体,Generate Sculpt Object
+将雕刻应用于 Shapekey,Apply Sculpt to Shapekey
+姿势选项,Pose Options
+X 轴镜像（姿势）,X-Axis Mirror (Pose)
+Shapekeys 编辑选项,Shapekeys Editting Options
+切换子冲浪,Toggle Subsurf
+设置联合变换,Set Joint Transforms
+脚踝姿势,Ankle Pose
+选择关节号,Select Joint Number
+脚趾 1 姿势,Foot Toe 1 Pose
+脚趾 2 姿势,Foot Toe 2 Pose
+膝盖姿势,Knee Pose
+大腿姿势,Thigh Pose
+骨盆/脊柱 1 姿势,Pelvis / Spine 1 Pose
+脊柱 2 姿势,Spine 2 Pose
+脊柱 3 姿势,Spine 3 Pose
+颈部 1 姿势,Neck 1 Pose
+颈部 2 姿势,Neck 2 Pose
+颈部 3 姿势,Neck 3 Pose
+头部姿势,Head Pose
+锁骨姿势,Collarbone Pose
+手臂姿势,Arm Pose
+前臂姿势,Forearm Pose
+手腕姿势,Wrist Pose
+拇指姿势,Thumb Pose
+索引姿势,Index Pose
+中间姿势,Middle Pose
+环式姿势,Ring Pose
+小姿势,Little Pose
+将当前形状应用于向上的眉形键,Apply Current Shape to Brow Up Shapekeys
+应用形状,Apply Shape
+将当前形状应用于下视形状键,Apply Current Shape to Brow Down Shapekeys
+选择形键顶点组,Select Shapekey Vertex Group
+眉毛姿势,Eyebrow Pose
+权重绘制选项,Weight Painting Options
+脸颊姿势,Cheek Pose
+鼻孔姿势,Nostril Pose
+嘴角姿势,Mouth Corner Pose
+将当前形状应用于 U 形键,Apply Current Shape to U Shapekeys
+将当前形状应用于 U_Thickness 形键,Apply Current Shape to U_Thickness Shapekeys
+将当前形状应用于 M 个形键,Apply Current Shape to M Shapekeys
+下颌姿势,Jaw Pose
+活动形键：,Active Shapekey:
+驱动程序：,Drivers:
+镜像：,Mirroring:
+镜像活动形键,Mirror Active Shapekey
+取消,Cancel
+重量助理指南,Weights Assistant Guide
+切换权重绘制,Toggle Weight Painting
+对称选项,Symmetry Options
+启用 X 对称,Enable X Symmetry
+选择网格变形 Vgroup,Select Mesh Deform Vgroup
+选择头部格子 Vgroup,Select Head Lattice Vgroup
+选择眉格Vgroup,Select Eyebrow Lattice Vgroup
+选择嘴部格子 Vgroup,Select Mouth Lattice Vgroup
+选择眼晶格 Vgroup,Select Eye Lattice Vgroup
+选择修正平滑 Vgroup,Select Corrective Smooth Vgroup
+真实关节参数,Realistic Joints Parameters
+踝关节移位,Ankle Displacement
+小腿扭转率,Shin Twist Rate
+扭曲率,Twist Rate
+体积保存：脚背,Volume Preservation: Instep
+向外,Outwards
+体积保存：脚踝,Volume Preservation: Ankle
+自动镜像 RJ 和 VP 值,Auto Mirror RJ and VP Values
+镜像值,Mirror Values
+体积保存：脚趾 1 向下卷曲,Volume Preservation: Toe 1 Curl Down
+体积保存：脚趾 1 卷起,Volume Preservation: Toe 1 Curl Up
+体积保存：脚趾 2 向下卷曲,Volume Preservation: Toe 2 Curl Down
+体积保存：脚趾 2 卷起,Volume Preservation: Toe 2 Curl Up
+胫骨位移,Shin Displacement
+大腿位移,Thigh Displacement
+大腿扭动率,Thigh Twist Rate
+体积保存：胫骨,Volume Preservation: Shin
+体积保存：膝盖体积,Volume Preservation: Knee Volume
+体积保存：腿部,Volume Preservation: Leg
+水平的,Horizontal
+体积保存：臀部,Volume Preservation: Buttock
+体积保存：臀部,Volume Preservation: Hips
+体积保存：斜方肌,Volume Preservation: Trapezius
+体积保存：胸部,Volume Preservation: Chest
+体积保存：背部,Volume Preservation: Back
+体积保存：肩部,Volume Preservation: Shoulder
+体积保存：腋窝：,Volume Preservation: Armpit:
+后退：,Back:
+前臂位移,Forearm Displacement
+手臂位移,Arm Displacement
+体积保存：前臂,Volume Preservation: Forearm
+弯头,Elbow
+手臂扭动率,Arm Twist Rate
+Wrist_L 位移 1,Wrist_L Displacement 1
+上腕部体积：,Upper Wrist Volume:
+下腕部体积：,Lower Wrist Volume:
+前部扭转率,Forerm Twist Rate
+手部姿势,Hand Pose
+手指：,Fingers:
+体积保存：手指,Volume Preservation: Fingers
+指关节体积：,Knuckles Volume:
+棕榈体积：,Palm Volume:
+手指音量：,Fingers Volume:
+手指姿势,Fingers Pose
+大拇指向上指关节音量：,Thumb Up Knuckle Volume:
+指数向上指关节量：,Index Up Knuckle Volume:
+中上关节体积：,Middle Up Knuckle Volume:
+响起关节音量：,Ring Up Knuckle Volume:
+小关节音量：,LIttle Up Knuckle Volume:
+拇指向下指关节音量：,Thumb Down Knuckle Volume:
+拇指向下手掌体积：,Thumb Down Palm Volume:
+指数下指关节成交量：,Index Down Knuckle Volume:
+指数下跌棕榈量：,Index Down Palm Volume:
+中下关节体积：,Middle Down Knuckle Volume:
+手掌中部向下体积：,Middle Down Palm Volume:
+关节下响音量：,Ring Down Knuckle Volume:
+手掌环向下卷：,Ring Down Palm Volume:
+小关节音量：,Little Down Knuckle Volume:
+小掌羽绒体积：,Little Down Palm Volume:
+拇指上方音量：,Thumb Upper Volume:
+拇指下方音量：,Thumb Lower Volume:
+指数上行量：,Index Upper Volume:
+指数较低成交量：,Index Lower Volume:
+中上音量：,Middle Upper Volume:
+中下音量：,Middle Lower Volume:
+环上部音量：,Ring Upper Volume:
+铃声下音量：,Ring Lower Volume:
+小上部音量：,Little Upper Volume:
+音量稍低：,Little Lower Volume:
+头部关节姿势,Head Joints Pose
+耳朵姿势,Ear Pose
+眉毛姿势,Eyebrows Pose
+眼睑姿势,Eyelids Pose
+脸颊姿势,Cheeks Pose
+鼻子姿势,Nose Pose
+嘴部姿势,Mouth Pose
+掩蔽选项,Masking Options
+使用面膜,Use Face Mask
+使用自动规范化,Use Auto Normalize
+图层设置,Layers Settings
+图层,Layers
+图层名称: (始终保留 32 个项目),Layers Names: (Always keep 32 items)
+重命名图层,Renaming Layers
+最大层数,Maximum Layers
+装配和烘焙,Rigging & Baking
+比例调整模式,Reproportion Mode
+自定义对齐,Custom Aligns
+视觉助理,Visual Assistant
+右方,R_Side
+左舷,L_Side
+眼睛,Eyes
+脸,Face
+面部控制,Face Controls
+眉毛,Eyerbrows
+嘴唇,Lips
+面機械,Face Mech
+口腔内部,Inner Mouth
+手,Hands
+脚趾,Toes
+其他的,Others
+高级烘焙,Advanced Baking
+烘烤：,Baking:
+烘焙电枢,Bake Armature
+修复对齐：,Fix Alignment:
+修复关节,Fix Joints
+计算卷,Calc Rolls
+存储滚动角度,Store Roll Angles
+恢复滚动角度,Restore Roll Angles
+X 轴镜,X-Axis Mirror
+显示轴,Display Axes
+额外内容：,Extras:
+重置变形器,Reset Deformers
+计算极角,Calculate Pole Angles
+将 Armature 设置为 BlenRig Armature,Set Armature as BlenRig Armature
+装配优化,Rigging Optimizations
+钻机优化,RIG OPTIMIZATIONS
+启用面部驱动程序,Enable Face Drivers
+启用车身驱动器,Enable Body Drivers
+启用弹性伸缩,Enable Flex Scaling
+启用动态扩展,Enable Dynamic Scaling
+钻机版本信息,Rig Version Info
+電枢 Ver.,"Armature Ver. "
+BlenRig 5 控件,BlenRig 5 Controls
+骨架需要更新！,Armature needs Update!
+現在版本,"Current Ver. "
+更新至版本 1.005,Update to Ver. 1.005
+备份文件！,Backup the file!
+更新,"UPDATE "
+（要跳过更新，请编辑 Armature Data 中的 rig_version 属性）,"(To skip update, edit rig_version property in Armature Data)"
+电枢层,ARMATURE LAYERS
+骨架自定义层,ARMATURE CUSTOM LAYERS
+分配,Assign
+消除,Remove
+选择,Select
+取消选择,Deselect
+姿势复制粘贴按钮,Pose Copy-Paste bottons
+快速姿势翻转,Quick Pose Flipped
+BLENRIG 车身拾取器,BLENRIG BODY PICKER
+特性,PROPERTIES
+眼睛目标,Eyes Target
+头FK,Head FK
+头部运动,Head IK
+颈部控制,Neck Ctrl
+伊克,IK
+施尔德FK,Shldr FK
+自由基,FK
+躯干控制,Torso Ctrl
+Spine 3 反转 Ctrl,Spine 3 inv Ctrl
+倒置,Invert
+伊科/前锋,IK/FK
+强心剂,Str IK
+躯干先生,Mstr Torso
+骨盆控制,Pelivs Ctrl
+手部运动,Hand IK
+手FK,Hand FK
+手,Hand R
+手底 R,Hand Sole R
+手,Hand L
+手底 L,Hand Sole L
+脚 R,Foot R
+脚 L,Foot L
+唯一R,Sole R
+鞋底 L,Sole L
+掌握,Master
+缩放至选定项,Zoom to Selected
+模型_Res,Model_Res
+头,HEAD
+合页,Hinge
+脖子,NECK
+ARM_R,ARM_R
+手,HAND_R
+手指,FING_R
+腿长,LEG_R
+TOES_R,TOES_R
+ARM_L,ARM_L
+手,HAND_L
+芬格,FING_L
+腿长,LEG_L
+TOES_L,TOES_L
+IK/FK 捕捉,IK/FK SNAPPING
+全部,ALL
+扣头,SNAP HEAD
+前锋 >> 后锋,FK >> IK
+IK >> FK,IK >> FK
+弹射躯干,SNAP TORSO
+向上 >> 投资,UP >> INV
+股价 >> 上涨,INV >> UP
+左弹簧臂,SNAP ARM LEFT
+右弹簧臂,SNAP ARM RIGHT
+左腿突然断裂,SNAP LEG LEFT
+右腿断裂,SNAP LEG RIGHT
+BLENRIG 人脸识别器,BLENRIG FACE PICKER
+眉毛 R,Brow R
+眉毛 L,Brow L
+眼睑上移 R,Eyelid up R
+眼睑低R,Eyelid low R
+眼睑上移 L,Eyelid up L
+眼睑低 L,Eyelid low L
+奇克,Cheek R
+奇克 L,Cheek L
+嘴巴控制,Mouth ctrl
+嘴巴控制,Mouth mstr ctrl
+马克西,Maxi
+"牙齿向上  ","Teeth up  "
+牙齿低,Teeth low
+舌头大师,Tongue mstr
+额外属性,EXTRA PROPERTIES
+牙齿 - 跟随微笑,Teeth - Follow Smile
+上牙,Upper Teeth
+下牙,Lower Teeth
+肉眼,Fleshy Eyes
+眼睛_R,Eye_R
+眼睛_L,Eye_L
+武器,Arms
+弯曲臂,Curved Arms
+曲线_R,Curve_R
+调整_R,Tweak_R
+曲线_L,Curve_L
+调整_L,Tweak_L
+肘杆,Elbow Poles
+关注_Torso_R,Follow_Torso_R
+Follow_Torso_L,Follow_Torso_L
+手指,Fingers
+伊克尔,IK_R
+Hinge_R,Hinge_R
+伊科,IK_L
+铰链_L,Hinge_L
+拇指,Thumb
+指数,Index
+中间,Middle
+戒指,Ring
+小的,Little
+关注 FREE_R,FOLLOW FREE_R
+关注 FREE_L,FOLLOW FREE_L
+腿,Legs
+弯曲的腿,Curved Legs
+膝上杆,Knee Poles
+跟随_foot_R,Follow_foot_R
+Follow_foot_L,Follow_foot_L
+道具,Props
+切换自由或粘性,Toggle Free or Sticky
+帽子,Hat
+眼镜,Glasses
+自定义属性,CUSTOM PROPERTIES
+主动骨骼旋转顺序,ACTIVE BONE ROTATION ORDER
+[,[
+肌肉系统,MUSCLE SYSTEM
+离开,Off
+在,On
+肌肉,Muscles
+肌肉分辨率,Muscle Resolution
+变形附加功能,Deformation Extras
+BlenRig 5.5 控件,BlenRig 5.5 Controls
+BlenRig 5 索具控制,BlenRig 5 Rigging Control
+身体设定,BODY SETTINGS
+伊恩:,IK:
+IK 初始旋转：,IK Initial Rotation:
+自动移动：,Automated Movement:
+IK 自动肩部：,IK Auto Shoulder:
+{} {},{} {}
+躯干 FK 控制影响：,Torso FK Ctrl Influence:
+躯干 INV 控制影响：,Torso INV Ctrl Influence:
+脊柱 2 版,Spine 2 inv
+脊柱 1 介绍,Spine 1 inv
+骨盆内翻,Pelvis inv
+颈部 FK Ctrl 影响：,Neck FK Ctrl Influence:
+脚部滚动 R：,Foot Roll R:
+脚部滚动 L：,Foot Roll L:
+逼真的关节：,Realistic Joints:
+骨骼运动,Bone Movement
+切换：,Toggles:
+面部设置,FACIAL SETTINGS
+面部运动范围：,Facial Movement Ranges:
+嘴角_R,Mouth_Corner_R
+嘴角 L,Mouth_Corner_L
+嘴巴控制,Mouth_Ctrl
+皱眉,Mouth_Frown_R
+皱眉,Mouth_Frown_L
+脸颊_Ctrl_R,Cheek_Ctrl_R
+脸颊_Ctrl_L,Cheek_Ctrl_L
+鼻子_皱眉_R,Nose_Frown_R
+鼻子_皱眉_L,Nose_Frown_L
+眼睑_低_R,Eyelid_Low_R
+眼睑_低_L,Eyelid_Low_L
+眼睑向上_R,Eyelid_Up_R
+眼睑向上_L,Eyelid_Up_L
+动作切换：,Action Toggles:
+唇形整形：,Lip Shaping:
+关注左角,Follow Left Corner
+十：,X:
+是：,Y:
+Z：,Z:
+％,%
+关注右角,Follow Right Corner
+图层设置,LAYERS SETTING
+"  骨骼自动隐藏","  Bone Auto Hiding"
+图层方案：,Layers Schemes:
+袖珍的,Compact
+扩展,Expanded
+装配和烘焙,RIGGING & BAKING
+修复对齐（编辑模式）：,Fix Alignment (Edit Mode):
+设置库覆盖,Set Library Overrides On
+BlenRig 通用面板,BlenRig General Panel
+Blenrig 6 通用子面板,Blenrig 6 general SubPanel
+BlenRig 6 控件,BlenRig 6 Controls
+" 骨架层"," Armature Layers"
+" 电枢自定义层"," Armature Custom Layers"
+身体选择器和属性,BODY PICKER & PROPERTIES
+拾取器,PICKER
+为所有属性设置关键帧,Keyframe All Properties
+眼睛目标,Eye Target
+Ctrl,Ctrl
+躯干 FK 控制,Torso FK Ctrl
+投资,Inv
+重置枢轴,Reset Pivot
+对齐脊柱,Align Spine
+大师级,Master Extra
+右臂,ARM RIGHT
+弹性 IK,Stretchy IK
+肘杆,ELBOW POLE
+销式弯头,Pin Elbow
+右手,HAND RIGHT
+手指,FINGERS
+右腿,LEG RIGHT
+膝杆,KNEE POLE
+膝关节,Pin Knee
+脚趾,TOES
+左臂,ARM LEFT
+左手,HAND LEFT
+左腿,LEG LEFT
+人脸识别,FACE PICKER
+模型解析,Model Res
+牙齿——随着微笑而伸展,Teeth - Stretch along with the Smile
+跟随嘴部方向,Follow Mouth Orientation
+舌头,Tongue
+右手指空间,RIGHT FINGERS SPACE
+左手指空间,LEFT FINGERS SPACE
+道具空间,Props Space
+眼镜,Eyeglasses
+手饰,Hand Accessory
+BlenRig 6 指南面板,BlenRig 6 guides Panels
+添加身体修饰符,Add Body Mofiiers
+添加牙齿矫正器,Add Teeth Mofiiers
+添加左眼调整器,Add Left Eye Mofiiers
+添加右眼调整器,Add Right Eye Mofiiers
+Shapekeys 工具,Shapekeys Tools
+添加,Add
+镜像,Mirroring
+镜像形键,Mirror Shapekey
+镜像所有形键,Mirror All Shapekeys
+镜像形状键驱动程序,Mirror Shapekey Driver
+雕刻,Sculpting
+覆盖雕刻物体,Override Sculpt Object
+未指定对象,No Objects Assigned
+覆盖形键对象,Override Shapekey Objet
+未指定对象,No Object Assigned
+镜像活动顶点组,Mirror Active Vertex Group
+角色对象,Character Objects
+将选定对象定义为实体对象,Define selected as Body Objects
+将选定对象定义为脚趾对象,Define selected as Toes Object
+BlenRig 装配网格,BlenRig Rigging Meshes
+将选定对象定义为 Mdef Cage 对象,Define selected as Mdef Cage Object
+将选定对象定义为头部重量转移对象,Define selected as Head Weights Transfer Object
+将选定对象定义为手部重量转移对象,Define selected as Hands Weights Transfer Object
+肩部自动机芯：,Shoulder Automatic Movement:
+Shoulder_R 前锋,Shoulder_R Forwards
+Shoulder_R 向后,Shoulder_R Backwards
+Shoulder_R 向上,Shoulder_R Upwards
+Shoulder_R 向下,Shoulder_R Downwards
+弯头销：,Elbow Pin:
+肩部 L 下限,Shoulder L Down Limit
+脊柱 3 逆,Spine 3 Inv
+脊柱 2 投资,Spine 2 Inv
+有机扭曲：,Organic Twisting:
+脊柱,Spine
+身体 BBones 设置：,Body BBones Settings:
+体积变化,Volume Variation
+手臂,Arm_R
+手指_R,Fingers_R
+腿_R,Leg_R
+脚趾_R,Toes_R
+前臂_R,Forearm_R
+Thigh_R,Thigh_R
+申_R,Shin_R
+前臂_L,Forearm_L
+大腿_L,Thigh_L
+申_L,Shin_L
+身体碰撞偏移：,Body Collisions Offset:
+Foot_R,Foot_R
+IK 初始旋转覆盖（修复非弯曲 IK）：,IK Initial Rotation Override (Fix non bending IK):
+关节旋转时骨位移,Bone Displacement On Joint Rotation
+Elbow_R 位移 1,Elbow_R Displacement 1
+Elbow_R 位移 2,Elbow_R Displacement 2
+腕部_R 位移 1,Wrist_R Displacement 1
+Knee_R 位移 1,Knee_R Displacement 1
+Knee_R 位移 2,Knee_R Displacement 2
+Ankle_R 位移 1,Ankle_R Displacement 1
+将值镜像到左侧,Mirror Values to the Left Side
+Elbow_L 位移 1,Elbow_L Displacement 1
+Elbow_L 位移 2,Elbow_L Displacement 2
+Knee_L 位移 1,Knee_L Displacement 1
+Knee_L 位移 2,Knee_L Displacement 2
+Ankle_L 位移 1,Ankle_L Displacement 1
+将值镜像到右侧,Mirror Values to the Right Side
+体积保存骨骼运动：,Volume Preservation Bones Movement:
+前臂向上,Forearm Upwards
+前臂体积：,Forearm Volume:
+肘部体积：,Elbow Volume:
+手臂向上,Arm Upwards
+肩部体积：,Shoulder Volume:
+手臂向下,Arm Downwards
+腋窝体积：,Armpit Volume:
+胸部体积：,Chest Volume:
+回卷：,Back Volume:
+手臂向前,Arm Forwards
+手臂向后,Arm Backwards
+陷阱体积：,Trap Volume:
+手向上,Hand Upwards
+举手：,Hand Up:
+手向下,Hand Downwards
+手指向后,Fingers Backwards
+手指卷曲,Fingers Curl
+手掌体积,"Palm Volume "
+腿向前,Leg Forwards
+腿部体积：,Leg Volume:
+腿向外,Leg Outwards
+臀部体积：,Hips Volume:
+腿向后,Leg Backwards
+臀部体积：,Buttock Volume:
+小腿向上,Shin Upwards
+胫骨体积：,Shin Volume:
+膝关节体积：,Knee Volume:
+脚向下,Foot Downwards
+踝部体积：,Ankle Volume:
+脚向上,Foot Upwards
+脚背体积：,Instep Volume:
+脚趾向上卷曲,Foot Toe Curl Upwards
+脚趾 1 向上音量：,Toe 1 Up Volume:
+脚趾 2 向上音量：,Toe 2 Up Volume:
+脚趾向下弯曲,Foot Toe Curl Downwards
+脚趾 1 下部音量：,Toe 1 Lower Volume:
+脚趾 2 下部音量：,Toe 2 Lower Volume:
+脚趾向后,Toes Backwards
+趾关节体积：,Toe Knuckles Volume:
+脚趾卷曲,Toes Curl
+趾底体积：,Toe Sole Volume:
+脚趾体积：,Toes Volume:
+面部 BBones 设置：,Facial BBones Settings:
+眉毛曲线值,Eyebrows Curve Values
+曲线进入,Curve in
+曲线出,Curve out
+嘴唇曲线值,Lips Curve Values
+面碰撞偏移：,Face Collisions offset:
+眼睑地板偏移,Eyelids Floor Offset
+眼睑 3 右,Eyelid 3 R
+眼睑 2 右,Eyelid 2 R
+眼睑 1 右,Eyelid 1 R
+眼睑 3 左,Eyelid 3 L
+眼睑 2 左,Eyelid 2 L
+眼睑 1 左,Eyelid 1 L
+唇部地板偏移,Lips Floor Offset
+唇_3_右,Lip_3_R
+唇_2_右,Lip_2_R
+唇_1_右,Lip_1_R
+唇_中,Lip_Mid
+唇_1_左,Lip_1_L
+唇_2_左,Lip_2_L
+唇_3_左,Lip_3_L
+唇部向上控制,Lip Up Ctrl
+碰撞切换,Collisions Toggles
+眼睑 R 地板,Eyelids R Floor
+眼睑 L 地板,Eyelids L Floor
+唇部地板,Lips Floor
+嘴唇僵硬,Lip Rigidity
+右侧,Right Side
+左侧,Left Side
+唇部提升 3 R,Lip Up 3 R
+唇部提升 2 R,Lip Up 2 R
+唇向上 1 R,Lip Up 1 R
+唇低 3 R,Lip Low 3 R
+唇低 2 R,Lip Low 2 R
+唇低 1 R,Lip Low 1 R
+Lip Up 1 升,Lip Up 1 L
+唇部护理 2 L,Lip Up 2 L
+唇部护理 3 L,Lip Up 3 L
+Lip Low 1 升,Lip Low 1 L
+唇低 2 升,Lip Low 2 L
+唇低 3 L,Lip Low 3 L
+上唇R曲线圆度,Upper Lip R Curve Roundness
+拉链唇R曲线圆度,Zipper Lip R Curve Roundness
+下唇R曲线圆度,Lower Lip R Curve Roundness
+上唇L曲线圆度,Upper Lip L Curve Roundness
+拉链唇L曲线圆度,Zipper Lip L Curve Roundness
+下唇L曲线圆度,Lower Lip L Curve Roundness
+移动覆盖,Movement Override
+皱眉_R,Frowns_R
+皱眉_L,Frowns_L
+肉嘴率,Fleshy Mouth Rate
+肉鼻率,Fleshy Nose Rate
