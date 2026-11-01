@@ -268,12 +268,21 @@ _LONG_STRING = 300
 
 
 def module_py_files(module_name, module_path):
-    """All .py files that belong to that add-on."""
+    """All .py files that belong to that add-on.
+
+    A packaged add-on reports ``.../<pkg>/__init__.py`` as its file, but its UI
+    strings usually live in sibling modules - so walk the whole package folder
+    instead of stopping at that one file.
+    """
     if not module_path or not os.path.exists(module_path):
         return []
     if os.path.isdir(module_path):
-        return glob.glob(os.path.join(module_path, "**", "*.py"), recursive=True)
-    return [module_path]
+        base = module_path
+    elif os.path.basename(module_path).lower() == "__init__.py":
+        base = os.path.dirname(module_path)
+    else:
+        return [module_path]
+    return glob.glob(os.path.join(base, "**", "*.py"), recursive=True)
 
 
 def extract_strings(module_name, module_path, limit=4000):
