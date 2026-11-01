@@ -507,6 +507,84 @@ def translate_addon(module_name, module_path, target_name=None, dry_run=False, o
     }
 
 
+def existing_pairs(csv_path):
+    """Public wrapper: trusted pairs already stored for one add-on."""
+    return _existing_pairs(csv_path)
+
+
+def pending_strings(module_name, module_path, csv_path=None):
+    """Strings that still have no Chinese: not in the dictionary, not Chinese,
+    not already handled by Blender's own translation."""
+    index = glossary_index()
+    existing = _existing_pairs(csv_path) if csv_path else {}
+    pending = []
+    for source in extract_strings(module_name, module_path):
+        if is_already_localized(source):
+            continue
+        if existing.get(source):
+            continue
+        if lookup_translation(index, source):
+            continue
+        try:
+            if bpy is not None and bpy.app.translations.pgettext_iface(source) != source:
+                continue
+        except Exception:
+            pass
+        pending.append(source)
+    return pending
+
+
+def write_pairs(csv_path, pairs):
+    """Rewrite one dictionary file from a {english: chinese} mapping."""
+    rows = []
+    for source in sorted(pairs):
+        translated = (pairs[source] or "").strip()
+        if not translated:
+            continue
+        rows.append("%s,%s" % (_csv_escape(translated), _csv_escape(source)))
+    os.makedirs(os.path.dirname(csv_path) or ".", exist_ok=True)
+    with codecs.open(csv_path, "w", "utf-8") as handle:
+        handle.write("\n".join(rows))
+    return len(rows)
+
+
+def audit_dicts():
+    """Quick health summary of every dictionary file."""
+    report = {
+        "files": 0,
+        "rows": 0,
+        "valid": 0,
+        "invalid": 0,
+        "duplicates": 0,
+        "suspect_files": [],
+    }
+    seen = set()
+    for path in _csv_paths():
+        report["files"] += 1
+        good = bad = 0
+        for row in read_csv_rows(path):
+            if len(row) < 2:
+                continue
+            report["rows"] += 1
+            translated = row[0].replace("\\n", "\n").strip()
+            source = row[1].replace("\\n", "\n").strip()
+            if not translated or not source:
+                continue
+            pair = (source, translated)
+            if pair in seen:
+                report["duplicates"] += 1
+            seen.add(pair)
+            if pair_is_sane(translated, source):
+                good += 1
+            else:
+                bad += 1
+        report["valid"] += good
+        report["invalid"] += bad
+        if bad and (bad > good * _FILE_MAX_BAD_RATIO) and bad > 5:
+            report["suspect_files"].append(os.path.basename(path))
+    return report
+
+
 def missing_to_clipboard(module_name, module_path):
     """Put the not-yet-translated strings on the clipboard (one per line)."""
     index = glossary_index()

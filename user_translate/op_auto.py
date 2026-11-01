@@ -32,7 +32,12 @@ from .auto_translate import (
     missing_to_clipboard,
     list_addons,
     filter_addons,
+    pending_strings,
+    existing_pairs,
+    write_pairs,
+    audit_dicts,
 )
+from . import mt_translate as mt
 
 
 def _redraw_areas():
@@ -421,6 +426,92 @@ class USERTRANSLATE_OT_dismiss_new_addons(Operator):
         mark_addons_known()
         _redraw_areas()
         self.report({'INFO'}, "已忽略本次新插件提示")
+        return {'FINISHED'}
+
+
+class USERTRANSLATE_OT_mt_fill_selected(Operator):
+    bl_idname = "usertranslate.mt_fill_selected"
+    bl_label = "机翻补翻选中插件"
+    bl_description = (
+        "用机器翻译补上词典里没有的词条，写回该插件的 csv\n"
+        "需要 API Key，会产生少量费用；只翻译界面文字"
+    )
+
+    def execute(self, context):
+        prefs = preference()
+        if not getattr(prefs, "mt_enabled", False):
+            self.report({'WARNING'}, "请先勾选「启用机翻补翻」")
+            return {'CANCELLED'}
+
+        if prefs.addon_index < 0 or prefs.addon_index >= len(prefs.addon_rows):
+            self.report({'WARNING'}, "请先在列表里点选一个插件")
+            return {'CANCELLED'}
+
+        module_id = prefs.addon_rows[prefs.addon_index].module
+        module_id, label, path = _find_addon(module_id)
+        if not module_id:
+            self.report({'WARNING'}, "找不到该插件")
+            return {'CANCELLED'}
+
+        csv_path = csv_path_for_module(module_id)
+        pending = pending_strings(module_id, path, csv_path)
+        if not pending:
+            self.report({'INFO'}, "%s：没有需要机翻的词条（词典已覆盖）" % label)
+            return {'FINISHED'}
+
+        limit = int(getattr(prefs, "mt_limit", 200) or 200)
+        try:
+            result = mt.translate(pending, limit=limit)
+        except mt.MTError as exc:
+            self.report({'ERROR'}, str(exc))
+            return {'CANCELLED'}
+        except Exception as exc:  # network stack surprises
+            self.report({'ERROR'}, "机翻失败：%s" % exc)
+            return {'CANCELLED'}
+
+        if not result:
+            self.report({'WARNING'}, "机翻没有返回可用结果，检查接口/模型名")
+            return {'CANCELLED'}
+
+        pairs = existing_pairs(csv_path)
+        pairs.update(result)
+        written = write_pairs(csv_path, pairs)
+
+        disabled = disabled_dict_names()
+        disabled.discard(os.path.basename(csv_path))
+        set_disabled_dict_names(disabled)
+        reload_translation_file(csv_path)
+
+        sync_addon_rows(prefs)
+        _redraw_areas()
+        message = "%s：机翻补了 %d 条，词典现在 %d 条" % (label, len(result), written)
+        if hasattr(prefs, "auto_last_result"):
+            prefs.auto_last_result = message
+        self.report({'INFO'}, message)
+        return {'FINISHED'}
+
+
+class USERTRANSLATE_OT_audit_dicts(Operator):
+    bl_idname = "usertranslate.audit_dicts"
+    bl_label = "词典体检"
+    bl_description = "统计词典规模、异常行、重复词条，并列出可疑文件"
+
+    def execute(self, context):
+        prefs = preference()
+        report = audit_dicts()
+        message = "词典 %d 份 / %d 条：有效 %d，异常 %d，重复 %d" % (
+            report["files"], report["rows"], report["valid"],
+            report["invalid"], report["duplicates"],
+        )
+        if report["suspect_files"]:
+            message += "；可疑文件 %d 个：%s" % (
+                len(report["suspect_files"]),
+                "、".join(report["suspect_files"][:3]),
+            )
+        if hasattr(prefs, "auto_last_result"):
+            prefs.auto_last_result = message
+        _redraw_areas()
+        self.report({'INFO'}, message)
         return {'FINISHED'}
 
 

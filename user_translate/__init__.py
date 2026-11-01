@@ -7,7 +7,7 @@
 bl_info = {
     "name": "User Translate (Auto Translate)",
     "author": "zzl0921",
-    "version": (1, 0, 0),
+    "version": (1, 1, 0),
     "blender": (4, 1, 0),
     "location": "Addon Preferences",
     "description": "Dictionary based UI translation, plus auto-translate from the bundled glossary",
@@ -122,6 +122,19 @@ class USERTRANSLATE_MT_AddonPreferences(AddonPreferences):
         update=re_register_files,
     )
 
+    # 机翻补翻（可选，默认关闭；只有点了按钮才会发请求）
+    mt_enabled : BoolProperty(
+        name="启用机翻补翻",
+        description="允许用机器翻译补上词典没有的词条（会产生少量 API 费用）",
+        default=False,
+    )
+    mt_api_base : StringProperty(name="接口", default="https://api.deepseek.com")
+    mt_model : StringProperty(name="模型", default="deepseek-chat")
+    mt_api_key : StringProperty(name="API Key", default="")
+    mt_limit : IntProperty(name="最多条数", default=200, min=1, max=5000)
+    mt_batch : IntProperty(name="每批", default=40, min=5, max=80)
+    mt_timeout : IntProperty(name="超时(秒)", default=60, min=10, max=300)
+
     # 增量注册：只写界面真正会查询的 "*" 上下文（快 10 倍以上）
     register_all_contexts : BoolProperty(
         name="注册全部上下文（慢）",
@@ -212,6 +225,21 @@ class USERTRANSLATE_MT_AddonPreferences(AddonPreferences):
         if self.auto_last_result:
             col.label(text=self.auto_last_result, icon="INFO")
         col.label(text="勾选列表里的插件 = 自动翻译它；右侧 ↻ = 重新翻译；取消勾选 = 恢复原文", icon="NONE")
+
+        box = layout.box()
+        mcol = box.column()
+        mcol.label(text="机翻补翻（可选，需要 API Key）", icon="URL")
+        mcol.prop(self, "mt_enabled")
+        if self.mt_enabled:
+            mcol.prop(self, "mt_api_base", text="接口")
+            mcol.prop(self, "mt_model", text="模型")
+            mcol.prop(self, "mt_api_key", text="Key")
+            row = mcol.row(align=True)
+            row.prop(self, "mt_limit", text="最多条数")
+            row.prop(self, "mt_batch", text="每批")
+            mcol.operator("usertranslate.mt_fill_selected", text="机翻补翻选中插件", icon="SORTALPHA")
+            mcol.label(text="Key 明文存在 Blender 偏好里；也可用环境变量 USER_TRANSLATE_API_KEY", icon="ERROR")
+        mcol.operator("usertranslate.audit_dicts", text="词典体检", icon="CHECKMARK")
         layout.separator()
 
         layout.prop(context.preferences.view, "use_translate_interface",icon="FONTPREVIEW")
@@ -304,6 +332,8 @@ USERTRANSLATE_OT_translate_selected_addon,
 USERTRANSLATE_OT_translate_new_addons,
 USERTRANSLATE_OT_dismiss_new_addons,
 USERTRANSLATE_OT_set_all_addons,
+USERTRANSLATE_OT_mt_fill_selected,
+USERTRANSLATE_OT_audit_dicts,
 USERTRANSLATE_OT_refresh_auto_addon_list,
 USERTRANSLATE_MT_auto_addons,
 USERTRANSLATE_MT_auto_missing,
